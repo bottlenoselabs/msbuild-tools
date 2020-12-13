@@ -1,9 +1,11 @@
 <Project>
 
+<Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/" Condition=" '$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), EnlistmentInfo.props))' != '' " />
+
     <!-- Custom project settings -->
     <PropertyGroup>
         <IncludeStyleCop>false</IncludeStyleCop>
-        <RepositoryPath>$(MSBuildThisFileDirectory)../../../</RepositoryPath>
+        <GitRepositoryPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/</GitRepositoryPath>
     </PropertyGroup>
 
     <!-- MSBuild project settings -->
@@ -13,9 +15,9 @@
         <Nullable>enable</Nullable>
         <PlatformTarget>x64</PlatformTarget>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-        <OutputPath>$(RepositoryPath)bin/$(MSBuildProjectName)/$(Configuration)</OutputPath>
-        <BaseIntermediateOutputPath>$(RepositoryPath)obj/$(MSBuildProjectName)/$(Configuration)</BaseIntermediateOutputPath>
-        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <OutputPath>$(GitRepositoryPath)bin/$(MSBuildProjectName)/$(Configuration)</OutputPath>
+        <BaseIntermediateOutputPath>$(GitRepositoryPath)obj/$(MSBuildProjectName)/$(Configuration)</BaseIntermediateOutputPath>
+        <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
     </PropertyGroup>
 
