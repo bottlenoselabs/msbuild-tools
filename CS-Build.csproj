@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <!-- MSBuild project settings -->
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>C# build; my personal preferred settings for C# builds.</Description>
+        <Authors>Lucas Girouard-Stranks</Authors>
+        <RootNamespace />
+        <Copyright>Copyright © 2020 Lucas Girouard-Stranks</Copyright>
+        <License>MIT</License>
+        <PackageProjectUrl>https://github.com/lithiumtoast/cs-build</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/lithiumtoast/cs-build</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>C# build</PackageTags>
+        <IsPackable>true</IsPackable>
+        <IncludeSymbols>false</IncludeSymbols>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+    </PropertyGroup>
+
+    <!-- Build files -->
+    <ItemGroup>
+        <None Include="CS-Build.props" Pack="True" PackagePath="build\" />
+    </ItemGroup>
+
+</Project>
