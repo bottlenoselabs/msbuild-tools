@@ -15,6 +15,6 @@
     </ItemGroup>
 
     <!-- Code analysis -->
-    <Import Project="$(MSBuildThisFileDirectory)/../analysis/CodeAnalysis.targets" />
+    <Import Project="$(MSBuildThisFileDirectory)/analysis/CodeAnalysis.targets" />
 
 </Project>
