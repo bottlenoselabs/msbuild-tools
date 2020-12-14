@@ -1,3 +1,3 @@
 # my-msbuild
 
-My preferred build settings for MSBuild.
+My preferred settings and extensions for MSBuild.
