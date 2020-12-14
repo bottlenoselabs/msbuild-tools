@@ -1,3 +1,3 @@
-# cs-build
+# my-msbuild
 
-My preferred build settings for C#.
+My preferred build settings for MSBuild.
