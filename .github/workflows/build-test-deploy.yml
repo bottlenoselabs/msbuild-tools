@@ -80,21 +80,10 @@ jobs:
       with:
         dotnet-version: '${{ env.DOTNET_CORE_SDK_VERSION }}'
 
-    - name: "Install dependencies"
-      run: dotnet restore '${{ env.PROJECT_PATH }}' --verbosity quiet
-
-    - name: "Build solution"
-      run: dotnet build '${{ env.PROJECT_PATH }}' --nologo --verbosity minimal --configuration Release --no-restore /p:Version='${{ env.VERSION }}'
-
-    - name: "Test solution"
-      run: dotnet test '${{ env.PROJECT_PATH }}' --nologo --verbosity normal --configuration Release --no-build
-
     - name: "Pack solution"
-      if: matrix.os == 'ubuntu-latest'
-      run: dotnet pack '${{ env.PROJECT_PATH }}' --nologo --verbosity minimal --configuration Release --no-build -p:PackageVersion='${{ env.VERSION }}'
+      run: dotnet pack '${{ env.PROJECT_PATH }}' -p:PackageVersion='${{ env.VERSION }}'
 
     - name: "Upload packages"
-      if: matrix.os == 'ubuntu-latest'
       uses: actions/upload-artifact@v2
       with:
         name: nupkg
