@@ -4,3 +4,6 @@ obj/
 
 # macOS
 .DS_Store
+
+# NuGet packages
+nupkg/
