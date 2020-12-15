@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <!-- MSBuild project settings -->
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    </PropertyGroup>
+
+    <!-- NuGet https://docs.microsoft.com/en-us/dotnet/core/tools/csproj#nuget-metadata-properties https://docs.microsoft.com/en-us/nuget/reference/msbuild-targets#pack-target-inputs -->
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <Description>C# build; my personal preferred settings and extensions for MSBuild.</Description>
+        <PackageTags>MSBuild C# build</PackageTags>
+        <Authors>Lucas Girouard-Stranks</Authors>
+        <Copyright>Copyright © 2020 Lucas Girouard-Stranks</Copyright>
+        <PackageProjectUrl>https://github.com/lithiumtoast/my-msbuild</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/lithiumtoast/my-msbuild</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <License>MIT</License>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+        <DevelopmentDependency>true</DevelopmentDependency>
+        <IncludeSymbols>false</IncludeSymbols>
+    </PropertyGroup>
+
+    <!-- Build files -->
+    <ItemGroup>
+        <None Include="My-MSBuild.props" Pack="True" PackagePath="build/" />
+        <None Include="My-MSBuild.targets" Pack="True" PackagePath="build/" />
+        <None Include="./analysis/**/*" Pack="True" PackagePath="build/analysis" />
+    </ItemGroup>
+
+</Project>
