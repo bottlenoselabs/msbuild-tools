@@ -11,8 +11,8 @@
         <IsPackable>true</IsPackable>
         <Description>C# build; my personal preferred settings and extensions for MSBuild.</Description>
         <PackageTags>MSBuild C# build</PackageTags>
-        <Authors>Lucas Girouard-Stranks</Authors>
-        <Copyright>Copyright © 2020 Lucas Girouard-Stranks</Copyright>
+        <Authors>Lucas Girouard-Stranks (lithiumtoast)</Authors>
+        <Copyright>Copyright © 2020 Lucas Girouard-Stranks (lithiumtoast)</Copyright>
         <PackageProjectUrl>https://github.com/lithiumtoast/my-msbuild</PackageProjectUrl>
         <RepositoryUrl>https://github.com/lithiumtoast/my-msbuild</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
