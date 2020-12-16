@@ -17,7 +17,8 @@
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <OutputPath>$(GitRepositoryPath)bin/$(MSBuildProjectName)/$(Configuration)</OutputPath>
         <BaseIntermediateOutputPath>$(GitRepositoryPath)obj/$(MSBuildProjectName)/$(Configuration)</BaseIntermediateOutputPath>
-        <MSBuildProjectExtensionsPath>$(GitRepositoryPath)obj/$(MSBuildProjectName)/$(Configuration)</MSBuildProjectExtensionsPath>
+        <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
+        <RestoreOutputPath>$(BaseIntermediateOutputPath)<RestoreOutputPath/>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
     </PropertyGroup>
