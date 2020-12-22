@@ -1,7 +1,7 @@
 <Project>
 
-    <!-- MSBuild project settings -->
-    <PropertyGroup>
+    <!-- Enable/disable root namespace -->
+    <PropertyGroup Condition=" '$(EnableRootNamespace)' == 'false' ">
         <RootNamespace />
     </PropertyGroup>
 
