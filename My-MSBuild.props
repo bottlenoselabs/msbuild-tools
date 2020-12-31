@@ -1,36 +1,40 @@
 <Project>
 
-    <!-- Custom project settings -->
-    <PropertyGroup>
-        <EnableAnalyzers>false</EnableAnalyzers>
-        <EnableAnalyzersStyleCop>false</EnableAnalyzersStyleCop>
-        <GitRepositoryPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/</GitRepositoryPath>
-        <RootPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(GitRepositoryPath), .my-msbuild))/</RootPath>
-        <EnableRootNamespace>true</EnableRootNamespace>
-    </PropertyGroup>
+  <!-- Custom project settings -->
+  <PropertyGroup>
+    <EnableAnalyzers>false</EnableAnalyzers>
+    <EnableAnalyzersStyleCop>false</EnableAnalyzersStyleCop>
+    <GitRepositoryPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/</GitRepositoryPath>
+    <RootPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(GitRepositoryPath), .my-msbuild))/</RootPath>
+    <EnableRootNamespace>true</EnableRootNamespace>
+  </PropertyGroup>
 
-    <!-- MSBuild project settings -->
-    <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
-        <LangVersion>latest</LangVersion>
-        <Nullable>enable</Nullable>
-        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-        <OutputPath>$(RootPath)bin/$(MSBuildProjectName)/$(Configuration)</OutputPath>
-        <BaseIntermediateOutputPath>$(RootPath)obj/$(MSBuildProjectName)/$(Configuration)</BaseIntermediateOutputPath>
-        <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
-        <RestoreOutputPath>$(BaseIntermediateOutputPath)</RestoreOutputPath>
-        <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
-        <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
-    </PropertyGroup>
+  <!-- MSBuild project settings -->
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <OutputPath>$(RootPath)bin/$(MSBuildProjectName)/$(Configuration)</OutputPath>
+    <BaseIntermediateOutputPath>$(RootPath)obj/$(MSBuildProjectName)/$(Configuration)</BaseIntermediateOutputPath>
+    <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
+    <RestoreOutputPath>$(BaseIntermediateOutputPath)</RestoreOutputPath>
+    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
+    <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
+  </PropertyGroup>
 
-    <!-- NuGet -->
-    <PropertyGroup>
-        <IsPackable>false</IsPackable>
-        <PackageOutputPath>$(RepositoryPath)nupkg</PackageOutputPath>
-        <IncludeSymbols>false</IncludeSymbols>
-    </PropertyGroup>
-    <ItemGroup>
-        <None Include="$(MSBuildThisFileDirectory)NuGet.config" Link="Properties/NuGet.config" />
-    </ItemGroup>
+  <!-- NuGet -->
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <PackageOutputPath>$(RepositoryPath)nupkg</PackageOutputPath>
+    <IncludeSymbols>false</IncludeSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)NuGet.config" Link="Properties/NuGet.config" />
+  </ItemGroup>
+
+  <!-- Code analysis -->
+  <Import Project="$(MSBuildThisFileDirectory)/analysis/CodeAnalysis.props" />
 
 </Project>
