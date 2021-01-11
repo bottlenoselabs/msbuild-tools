@@ -1,5 +1,17 @@
 <Project>
 
+  <!-- Settings -->
+  <PropertyGroup>
+    <EnableAnalyzers>false</EnableAnalyzers>
+    <EnableAnalyzersStyleCop>false</EnableAnalyzersStyleCop>
+  </PropertyGroup>
+
+  <!-- Ruleset -->
+  <PropertyGroup>
+    <CodeAnalysisRuleSetFileName>CodeAnalysis.ruleset</CodeAnalysisRuleSetFileName>
+    <CodeAnalysisRuleSetFilePath>$(MSBuildThisFileDirectory)/$(CodeAnalysisRuleSetFileName)</CodeAnalysisRuleSetFilePath>
+  </PropertyGroup>
+
   <!-- StyleCop -->
   <PropertyGroup>
     <StyleCopSettingsFileName>StyleCop.json</StyleCopSettingsFileName>

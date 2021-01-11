@@ -2,8 +2,6 @@
 
   <!-- Custom project settings -->
   <PropertyGroup>
-    <EnableAnalyzers>false</EnableAnalyzers>
-    <EnableAnalyzersStyleCop>false</EnableAnalyzersStyleCop>
     <GitRepositoryPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/</GitRepositoryPath>
     <RootPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(GitRepositoryPath), .my-msbuild))/</RootPath>
     <EnableRootNamespace>true</EnableRootNamespace>

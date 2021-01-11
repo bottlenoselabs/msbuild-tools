@@ -2,8 +2,6 @@
 
   <!-- Ruleset -->
   <PropertyGroup Condition=" '$(EnableAnalyzers)' == 'true' ">
-    <CodeAnalysisRuleSetFileName>Default.ruleset</CodeAnalysisRuleSetFileName>
-    <CodeAnalysisRuleSetFilePath>$(MSBuildThisFileDirectory)/$(CodeAnalysisRuleSetFileName)</CodeAnalysisRuleSetFilePath>
     <!-- NOTE: Rosyln expects a variable named `CodeAnalysisRuleSet` to exist and will use it! Do NOT change the name of this property! -->
     <CodeAnalysisRuleSet>$(CodeAnalysisRuleSetFilePath)</CodeAnalysisRuleSet>
   </PropertyGroup>
