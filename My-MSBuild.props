@@ -35,4 +35,11 @@
   <!-- Code analysis -->
   <Import Project="$(MSBuildThisFileDirectory)/analysis/CodeAnalysis.props" />
 
+  <!-- Code analysis suppressions -->
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)/analysis/**/*.cs">
+      <Link>Properties/%(Filename)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
+
 </Project>
