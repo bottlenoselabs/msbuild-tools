@@ -22,4 +22,14 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage(
 	"Microsoft.Naming",
 	"CA1822:MarkMembersAsStatic",
-	Justification = "If we don't want something to be static when it otherwise could be then it's a conscience choice by the developer.")]
+	Justification = "If something could be static but it's not then the developer made a conscience choice.")]
+	
+[assembly: SuppressMessage(
+	"ReSharper",
+	"MemberCanBeMadeStatic.Local",
+	Justification = "If something could be static but it's not then the developer made a conscience choice.")]
+
+[assembly: SuppressMessage(
+	"ReSharper",
+	"MemberCanBeMadeStatic.Global",
+	Justification = "If something could be static but it's not then the developer made a conscience choice.")]
