@@ -33,3 +33,8 @@ using System.Diagnostics.CodeAnalysis;
 	"ReSharper",
 	"MemberCanBeMadeStatic.Global",
 	Justification = "If something could be static but it's not then the developer made a conscience choice.")]
+	
+[assembly: SuppressMessage(
+	"Microsoft.Naming",
+	"CA1716:IdentifiersShouldNotMatchKeywords",
+	Justification = "If a developer named something that matches an identifier it's a conscience choice.")]
