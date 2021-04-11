@@ -6,14 +6,10 @@
     <EnableAnalyzersStyleCop>false</EnableAnalyzersStyleCop>
   </PropertyGroup>
 
-  <!-- Ruleset -->
-  <PropertyGroup>
-    <CodeAnalysisRuleSetFileName>CodeAnalysis.ruleset</CodeAnalysisRuleSetFileName>
-    <CodeAnalysisRuleSetFilePath>$(MSBuildThisFileDirectory)/$(CodeAnalysisRuleSetFileName)</CodeAnalysisRuleSetFilePath>
-  </PropertyGroup>
-
   <!-- StyleCop -->
   <PropertyGroup>
+    <StyleCopRuleSetFileName>StyleCop.ruleset</StyleCopRuleSetFileName>
+    <StyleCopRuleSetFilePath>$(MSBuildThisFileDirectory)/StyleCop/$(StyleCopRuleSetFileName)</StyleCopRuleSetFilePath>
     <StyleCopSettingsFileName>StyleCop.json</StyleCopSettingsFileName>
     <StyleCopSettingsFilePath>$(MSBuildThisFileDirectory)/StyleCop/$(StyleCopSettingsFileName)</StyleCopSettingsFilePath>
   </PropertyGroup>

@@ -1,17 +1,13 @@
 <Project>
 
-  <!-- Ruleset -->
+  <!-- StyleCop -->
   <PropertyGroup Condition=" '$(EnableAnalyzers)' == 'true' ">
     <!-- NOTE: Rosyln expects a variable named `CodeAnalysisRuleSet` to exist and will use it! Do NOT change the name of this property! -->
-    <CodeAnalysisRuleSet>$(CodeAnalysisRuleSetFilePath)</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>$(StyleCopRuleSetFilePath)</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <ItemGroup Condition=" '$(EnableAnalyzers)' == 'true' ">
-    <AdditionalFiles Include="$(CodeAnalysisRuleSetFilePath)" Visible="false" />
-    <None Include="$(CodeAnalysisRuleSetFilePath)" Link="Properties/$(CodeAnalysisRuleSetFileName)" />
-  </ItemGroup>
-
-  <!-- StyleCop -->
   <ItemGroup Condition=" '$(EnableAnalyzers)' == 'true' AND '$(EnableAnalyzersStyleCop)' == 'true' ">
+    <AdditionalFiles Include="$(StyleCopRuleSetFilePath)" Visible="false" />
+    <None Include="$(StyleCopRuleSetFilePath)" Link="Properties/$(StyleCopRuleSetFileName)" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.261" PrivateAssets="all" />
     <AdditionalFiles Include="$(StyleCopSettingsFilePath)" Visible="false" />
     <None Include="$(StyleCopSettingsFilePath)" Link="Properties/$(StyleCopSettingsFileName)" />
