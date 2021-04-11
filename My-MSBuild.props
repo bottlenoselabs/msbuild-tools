@@ -3,7 +3,7 @@
   <!-- Custom project settings -->
   <PropertyGroup>
     <GitRepositoryPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/</GitRepositoryPath>
-    <RootPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(GitRepositoryPath), .my-msbuild))/</RootPath>
+    <RootPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(GitRepositoryPath), .my-msbuild))</RootPath>
     <EnableRootNamespace>true</EnableRootNamespace>
   </PropertyGroup>
 
@@ -22,10 +22,15 @@
     <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
   </PropertyGroup>
 
+  <!-- StyleCop -->
+  <PropertyGroup>    
+		<CodeAnalysisRuleSetFilePath>$(MSBuildThisFileDirectory)CodeAnalysis.ruleset</CodeAnalysisRuleSetFilePath>
+		<StyleCopSettingsFilePath>$(MSBuildThisFileDirectory)StyleCop.json</StyleCopSettingsFilePath>
+  </PropertyGroup>
+
   <!-- NuGet -->
   <PropertyGroup>
     <IsPackable>false</IsPackable>
-    <PackageOutputPath>$(RepositoryPath)nupkg</PackageOutputPath>
     <IncludeSymbols>false</IncludeSymbols>
   </PropertyGroup>
   <ItemGroup>
