@@ -38,3 +38,8 @@ using System.Diagnostics.CodeAnalysis;
 	"Microsoft.Naming",
 	"CA1716:IdentifiersShouldNotMatchKeywords",
 	Justification = "If a developer named something that matches an identifier it's a conscience choice.")]
+	
+[assembly: SuppressMessage(
+	"Microsoft.Naming",
+	"CA1707:IdentifiersShouldNotContainUnderscores",
+	Justification = "Underscores are permissable due to dealing with C transpiled code.")]
