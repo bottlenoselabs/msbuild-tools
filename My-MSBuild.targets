@@ -26,4 +26,11 @@
   <!-- Code analysis -->
   <Import Project="$(MSBuildThisFileDirectory)/analysis/CodeAnalysis.targets" />
 
+  <!-- Remove obj folder; this folder sometimes shows up in the solution explorer in Rider / Visual Studio -->
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
 </Project>
