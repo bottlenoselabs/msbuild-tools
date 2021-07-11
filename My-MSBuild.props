@@ -5,6 +5,7 @@
     <GitRepositoryPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/</GitRepositoryPath>
     <RootPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(GitRepositoryPath), .my-msbuild))</RootPath>
     <EnableRootNamespace>true</EnableRootNamespace>
+    <AheadOfTimeCompilation>false</AheadOfTimeCompilation>
   </PropertyGroup>
 
   <!-- MSBuild project settings -->
@@ -20,12 +21,13 @@
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
     <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <!-- StyleCop -->
-  <PropertyGroup>    
-		<CodeAnalysisRuleSetFilePath>$(MSBuildThisFileDirectory)CodeAnalysis.ruleset</CodeAnalysisRuleSetFilePath>
-		<StyleCopSettingsFilePath>$(MSBuildThisFileDirectory)StyleCop.json</StyleCopSettingsFilePath>
+  <PropertyGroup>
+    <CodeAnalysisRuleSetFilePath>$(MSBuildThisFileDirectory)CodeAnalysis.ruleset</CodeAnalysisRuleSetFilePath>
+    <StyleCopSettingsFilePath>$(MSBuildThisFileDirectory)StyleCop.json</StyleCopSettingsFilePath>
   </PropertyGroup>
 
   <!-- NuGet -->
@@ -46,5 +48,68 @@
       <Link>Properties/%(Filename)%(Extension)</Link>
     </Compile>
   </ItemGroup>
+
+  <!-- Native ahead of time compilation (nAOT) -->
+  <PropertyGroup Condition="'$(AheadOfTimeCompilation)' == 'true'">
+
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+
+    <!-- Remove debug symbols -->
+    <DebugType>None</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+
+    <!-- IlcOptimizationPreference:Speed; When generating optimized code, favor code execution speed. -->
+    <!-- IlcOptimizationPreference:Size; When generating optimized code, favor smaller code size. -->
+    <IlcOptimizationPreference>Speed</IlcOptimizationPreference>
+
+    <!-- Enables more aggressive removal of unreferenced code. Enable member-level trimming, which removes unused members from types.  -->
+    <TrimMode>link</TrimMode>
+    <TrimmerSingleWarn>false</TrimmerSingleWarn>
+
+    <!-- Remove symbols from the trimmed application, including embedded PDBs and separate PDB files. This applies to both the application code and any dependencies that come with symbols. https://docs.microsoft.com/en-us/dotnet/core/deploying/trimming-options#trimming-framework-library-features -->
+    <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
+
+    <!-- Remove globalization specific code and data. https://docs.microsoft.com/en-us/dotnet/core/run-time-config/globalization#invariant-mode -->
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <IlcInvariantGlobalization>true</IlcInvariantGlobalization>
+
+    <!-- Remove code that enables better debugging experiences. https://docs.microsoft.com/en-us/dotnet/core/deploying/trimming-options -->
+    <DebuggerSupport>false</DebuggerSupport>
+
+    <!-- Remove BinaryFormatter serialization support. https://docs.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/5.0/binaryformatter-serialization-obsolete -->
+    <EnableUnsafeBinaryFormatterSerialization>false</EnableUnsafeBinaryFormatterSerialization>
+
+    <!-- Remove insecure UTF-7 encoding code. https://docs.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/5.0/utf-7-code-paths-obsolete -->
+    <EnableUnsafeUTF7Encoding>false</EnableUnsafeUTF7Encoding>
+
+    <!-- Remove EventSource related code or logic. https://docs.microsoft.com/en-us/dotnet/core/deploying/trimming-options#trimming-framework-library-features -->
+    <EventSourceSupport>false</EventSourceSupport>
+
+    <!-- Remove code related to diagnostics support for System.Net.Http. https://docs.microsoft.com/en-us/dotnet/core/deploying/trimming-options#trimming-framework-library-features -->
+    <HttpActivityPropagationSupport>false</HttpActivityPropagationSupport>
+
+    <!-- Remove metadata update specific logic related to hot reload. -->
+    <MetadataUpdaterSupport>false</MetadataUpdaterSupport>
+
+    <!-- Strip exception messages for System.* assemblies. When an exception is thrown from a System.* assembly, the message will be a simplified resource ID instead of the full message. https://docs.microsoft.com/en-us/dotnet/core/deploying/trimming-options#trimming-framework-library-features -->
+    <UseSystemResourceKeys>true</UseSystemResourceKeys>
+
+    <!-- Aids in troubleshooting some of the most common problems related to trimming. -->
+    <IlcGenerateCompleteTypeMetadata>true</IlcGenerateCompleteTypeMetadata>
+
+    <!-- Completely disables the reflection metadata generation. -->
+    <IlcDisableReflection>true</IlcDisableReflection>
+
+    <!-- Disables generation of stack trace metadata that provides textual names in stack traces. -->
+    <IlcGenerateStackTraceData>false</IlcGenerateStackTraceData>
+
+    <!-- Folds method bodies with identical bytes (method body deduplication). This makes your app smaller, but the stack traces might sometimes look nonsensical (unexpected methods might show up in the stack trace because the expected method had the same bytes as the unexpected method). -->
+    <IlcFoldIdenticalMethodBodies>true</IlcFoldIdenticalMethodBodies>
+
+    <!-- Disables code that prints stack traces for unhandled exceptions to the console. -->
+    <IlcDisableUnhandledExceptionExperience>true</IlcDisableUnhandledExceptionExperience>
+
+  </PropertyGroup>
 
 </Project>

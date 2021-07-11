@@ -33,4 +33,12 @@
     <None Remove="obj\**" />
   </ItemGroup>
 
+  <!-- Native ahead of time compilation (nAOT) -->
+  <ItemGroup Condition="'$(AheadOfTimeCompilation)' == 'true'">
+
+    <!-- Get the toolchain for Native AOT; only used for publish. -->
+    <PackageReference Include="Microsoft.DotNet.ILCompiler" Version="6.0.0-*" />
+
+  </ItemGroup>
+
 </Project>
