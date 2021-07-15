@@ -10,6 +10,8 @@
     <IsMacOS Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' == 'true'">true</IsMacOS> 
     <IsLinux Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">true</IsLinux>
     <IsFreeBSD Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">true</IsFreeBSD>
+    <ArchitectureCaseSensitive>$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)</ArchitectureCaseSensitive>
+    <Architecture>$(ArchitectureCaseSensitive.ToLower())</Architecture>
   </PropertyGroup>
 
   <!-- Platform symbols settings -->
