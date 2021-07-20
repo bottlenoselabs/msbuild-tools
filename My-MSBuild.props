@@ -2,7 +2,8 @@
 
   <!-- Custom project settings -->
   <PropertyGroup>
-    <GitRepositoryPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/</GitRepositoryPath>
+    <GitRepositoryPath Condition="'$(OS)' != 'Windows_NT'" >$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/</GitRepositoryPath>
+    <GitRepositoryPath Condition="'$(OS)' == 'Windows_NT'" >$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))\</GitRepositoryPath>
     <RootPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(GitRepositoryPath), .my-msbuild))</RootPath>
     <EnableRootNamespace>true</EnableRootNamespace>
     <AheadOfTimeCompilation>false</AheadOfTimeCompilation>
