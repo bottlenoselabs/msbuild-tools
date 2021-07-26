@@ -13,6 +13,11 @@
     <IsFreeBSD Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">true</IsFreeBSD>
     <ArchitectureCaseSensitive>$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)</ArchitectureCaseSensitive>
     <Architecture>$(ArchitectureCaseSensitive.ToLower())</Architecture>
+    <Is32Bit Condition="'$(Architecture)' == 'x86' OR '$(Architecture)' == 'arm32'">true</Is32Bit>
+    <Is32Bit Condition="'$(Architecture)' != 'x86' AND '$(Architecture)' != 'arm32'">false</Is32Bit>
+    <Is64Bit Condition="'$(Architecture)' == 'x64' OR '$(Architecture)' == 'arm64'">true</Is64Bit>
+    <Is64Bit Condition="'$(Architecture)' != 'x64' AND '$(Architecture)' != 'arm64'">false</Is64Bit>
+    <EnableDefaultRuntimeIdentifier>false</EnableDefaultRuntimeIdentifier>
   </PropertyGroup>
 
   <!-- Platform symbols settings -->
