@@ -1,5 +1,10 @@
 <Project>
 
+  <!-- Version -->
+  <PropertyGroup>
+    <Version Condition="'$(Version)' == ''">0.0.0.0-pre</Version>
+  </PropertyGroup>
+
   <!-- Enable/disable root namespace -->
   <PropertyGroup Condition=" '$(EnableRootNamespace)' == 'false' ">
     <RootNamespace />
