@@ -25,6 +25,7 @@
   <!-- NuGet -->
   <PropertyGroup>
     <PackageOutputPath>$(RootPath)nupkg</PackageOutputPath>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <!-- Properties folder -->
