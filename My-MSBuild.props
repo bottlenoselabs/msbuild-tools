@@ -4,7 +4,7 @@
   <PropertyGroup>
     <GitRepositoryPath Condition="'$(OS)' != 'Windows_NT'" >$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/</GitRepositoryPath>
     <GitRepositoryPath Condition="'$(OS)' == 'Windows_NT'" >$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))\</GitRepositoryPath>
-    <RootPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(GitRepositoryPath), .my-msbuild))</RootPath>
+    <RootPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(GitRepositoryPath), .sln))</RootPath>
     <EnableRootNamespace>true</EnableRootNamespace>
     <AheadOfTimeCompilation>false</AheadOfTimeCompilation>
     <IsWindows Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true'">true</IsWindows> 
