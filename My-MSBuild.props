@@ -4,7 +4,6 @@
   <PropertyGroup>
     <GitRepositoryPath Condition="'$(OS)' != 'Windows_NT'" >$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/</GitRepositoryPath>
     <GitRepositoryPath Condition="'$(OS)' == 'Windows_NT'" >$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))\</GitRepositoryPath>
-    <RootPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(GitRepositoryPath), .sln))</RootPath>
     <EnableRootNamespace>true</EnableRootNamespace>
     <AheadOfTimeCompilation>false</AheadOfTimeCompilation>
     <IsWindows Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true'">true</IsWindows> 
@@ -40,8 +39,8 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <OutputPath>$(RootPath)bin/$(MSBuildProjectName)/$(Configuration)</OutputPath>
-    <BaseIntermediateOutputPath>$(RootPath)obj/$(MSBuildProjectName)/$(Configuration)</BaseIntermediateOutputPath>
+    <OutputPath>$(GitRepositoryPath)bin/$(MSBuildProjectName)/$(Configuration)</OutputPath>
+    <BaseIntermediateOutputPath>$(GitRepositoryPath)obj/$(MSBuildProjectName)/$(Configuration)</BaseIntermediateOutputPath>
     <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
     <RestoreOutputPath>$(BaseIntermediateOutputPath)</RestoreOutputPath>
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
