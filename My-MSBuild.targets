@@ -10,6 +10,13 @@
     <RootNamespace />
   </PropertyGroup>
 
+  <!-- Enable/disable code coverage -->
+  <PropertyGroup Condition=" '$(EnableCodeCoverage)' == 'false' ">
+    <Compile Include="$(MSBuildThisFileDirectory)/AssemblyDisableCodeCoverage.cs">
+      <Link>Properties/AssemblyDisableCodeCoverage.cs</Link>
+    </Compile>
+  </PropertyGroup>
+
   <!-- Fill in the runtime identifier for a default value if enabled and not already specified -->
   <PropertyGroup Condition="'$(EnableDefaultRuntimeIdentifier)' == 'true' AND '$(RuntimeIdentifier)' == ''">
     <RuntimeIdentifier Condition="'$(IsWindows)' == 'true' AND '$(Architecture)' == 'x64'">win-x64</RuntimeIdentifier>

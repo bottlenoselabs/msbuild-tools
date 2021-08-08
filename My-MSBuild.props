@@ -5,6 +5,7 @@
     <GitRepositoryPath Condition="'$(OS)' != 'Windows_NT'" >$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/</GitRepositoryPath>
     <GitRepositoryPath Condition="'$(OS)' == 'Windows_NT'" >$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))\</GitRepositoryPath>
     <EnableRootNamespace>true</EnableRootNamespace>
+    <EnableCodeCoverage>true</EnableCodeCoverage>
     <AheadOfTimeCompilation>false</AheadOfTimeCompilation>
     <IsWindows Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true'">true</IsWindows> 
     <IsMacOS Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' == 'true'">true</IsMacOS> 
