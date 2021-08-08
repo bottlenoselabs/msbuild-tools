@@ -11,11 +11,11 @@
   </PropertyGroup>
 
   <!-- Enable/disable code coverage -->
-  <PropertyGroup Condition=" '$(EnableCodeCoverage)' == 'false' ">
+  <ItemGroup> Condition=" '$(EnableCodeCoverage)' == 'false' ">
     <Compile Include="$(MSBuildThisFileDirectory)/AssemblyDisableCodeCoverage.cs">
       <Link>Properties/AssemblyDisableCodeCoverage.cs</Link>
     </Compile>
-  </PropertyGroup>
+  </ItemGroup>
 
   <!-- Fill in the runtime identifier for a default value if enabled and not already specified -->
   <PropertyGroup Condition="'$(EnableDefaultRuntimeIdentifier)' == 'true' AND '$(RuntimeIdentifier)' == ''">
