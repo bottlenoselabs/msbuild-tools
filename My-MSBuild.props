@@ -63,9 +63,6 @@
     <IsPackable>false</IsPackable>
     <IncludeSymbols>false</IncludeSymbols>
   </PropertyGroup>
-  <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)NuGet.config" Link="Properties/NuGet.config" />
-  </ItemGroup>
 
   <!-- Code analysis -->
   <Import Project="$(MSBuildThisFileDirectory)/analysis/CodeAnalysis.props" />

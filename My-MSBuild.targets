@@ -11,9 +11,9 @@
   </PropertyGroup>
 
   <!-- Enable/disable code coverage -->
-  <ItemGroup> Condition=" '$(EnableCodeCoverage)' == 'false' ">
+  <ItemGroup Condition=" '$(EnableCodeCoverage)' == 'false' ">
     <Compile Include="$(MSBuildThisFileDirectory)/AssemblyDisableCodeCoverage.cs">
-      <Link>Properties/AssemblyDisableCodeCoverage.cs</Link>
+      <Link>Properties/%(Filename)%(Extension)</Link>
     </Compile>
   </ItemGroup>
 
