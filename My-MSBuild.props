@@ -67,13 +67,6 @@
   <!-- Code analysis -->
   <Import Project="$(MSBuildThisFileDirectory)/analysis/CodeAnalysis.props" />
 
-  <!-- Code analysis suppressions -->
-  <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)/analysis/**/*.cs">
-      <Link>Properties/%(Filename)%(Extension)</Link>
-    </Compile>
-  </ItemGroup>
-
   <!-- Native ahead of time compilation (nAOT) -->
   <PropertyGroup Condition="'$(AheadOfTimeCompilation)' == 'true'">
 

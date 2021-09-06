@@ -1,16 +1,25 @@
 <Project>
 
-  <!-- StyleCop -->
+  <!-- Rosyln analyzers -->
   <PropertyGroup Condition=" '$(EnableAnalyzers)' == 'true' ">
     <!-- NOTE: Rosyln expects a variable named `CodeAnalysisRuleSet` to exist and will use it! Do NOT change the name of this property! -->
     <CodeAnalysisRuleSet>$(StyleCopRuleSetFilePath)</CodeAnalysisRuleSet>
   </PropertyGroup>
+
+  <!-- Rosyln analyzers: StyleCop -->
   <ItemGroup Condition=" '$(EnableAnalyzers)' == 'true' AND '$(EnableAnalyzersStyleCop)' == 'true' ">
     <AdditionalFiles Include="$(StyleCopRuleSetFilePath)" Visible="false" />
     <None Include="$(StyleCopRuleSetFilePath)" Link="Properties/$(StyleCopRuleSetFileName)" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.261" PrivateAssets="all" />
     <AdditionalFiles Include="$(StyleCopSettingsFilePath)" Visible="false" />
     <None Include="$(StyleCopSettingsFilePath)" Link="Properties/$(StyleCopSettingsFileName)" />
+  </ItemGroup>
+
+  <!-- Code analysis suppressions -->
+  <ItemGroup Condition=" '$(EnableCodeAnalysisSuppressions)' == 'true' ">
+    <Compile Include="$(MSBuildThisFileDirectory)/analysis/**/*.cs">
+      <Link>Properties/%(Filename)%(Extension)</Link>
+    </Compile>
   </ItemGroup>
 
 </Project>
