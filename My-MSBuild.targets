@@ -21,9 +21,14 @@
   <PropertyGroup Condition="'$(EnableDefaultRuntimeIdentifier)' == 'true' AND '$(RuntimeIdentifier)' == ''">
     <RuntimeIdentifier Condition="'$(IsWindows)' == 'true' AND '$(Architecture)' == 'x64'">win-x64</RuntimeIdentifier>
     <RuntimeIdentifier Condition="'$(IsWindows)' == 'true' AND '$(Architecture)' == 'x86'">win-x86</RuntimeIdentifier>
+    <RuntimeIdentifier Condition="'$(IsWindows)' == 'true' AND '$(Architecture)' == 'Arm'">win-arm</RuntimeIdentifier>
+    <RuntimeIdentifier Condition="'$(IsWindows)' == 'true' AND '$(Architecture)' == 'Arm64'">win-arm64</RuntimeIdentifier>
     <RuntimeIdentifier Condition="'$(IsMacOS)' == 'true' AND '$(Architecture)' == 'x64'">osx-x64</RuntimeIdentifier>
+    <RuntimeIdentifier Condition="'$(IsMacOS)' == 'true' AND '$(Architecture)' == 'Arm64'">osx-arm64</RuntimeIdentifier>
     <RuntimeIdentifier Condition="'$(IsLinux)' == 'true' AND '$(Architecture)' == 'x64'">linux-x64</RuntimeIdentifier>
-    <RuntimeIdentifiaer Condition="'$(IsLinux)' == 'true' AND '$(Architecture)' == 'x86'">linux-x86</RuntimeIdentifiaer>
+    <RuntimeIdentifier Condition="'$(IsLinux)' == 'true' AND '$(Architecture)' == 'x86'">linux-x86</RuntimeIdentifier>
+    <RuntimeIdentifier Condition="'$(IsLinux)' == 'true' AND '$(Architecture)' == 'Arm'">linux-arm</RuntimeIdentifier>
+    <RuntimeIdentifier Condition="'$(IsLinux)' == 'true' AND '$(Architecture)' == 'Arm64'">linux-arm64</RuntimeIdentifier>
   </PropertyGroup>
   <Target Name="CheckRuntimeIdentifier" AfterTargets="Restore" BeforeTargets="BeforeBuild">
     <Error Condition="'$(EnableDefaultRuntimeIdentifier)' == 'true' AND '$(RuntimeIdentifier)' == ''" Text="'RuntimeIdentifier' was not set." />
