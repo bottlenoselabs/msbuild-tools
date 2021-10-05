@@ -24,8 +24,8 @@
   <PropertyGroup Condition="'$(IsWindows)'=='true'">
     <DefineConstants>WINDOWS</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(IsApple)'=='true'">
-    <DefineConstants>APPLE</DefineConstants>
+  <PropertyGroup Condition="'$(IsMacOS)'=='true'">
+    <DefineConstants>MACOS</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(IsLinux)'=='true'">
     <DefineConstants>LINUX</DefineConstants>
