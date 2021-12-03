@@ -9,6 +9,9 @@ jobs:
       - id: foo
         uses: bottlenoselabs/github-actions-dotnet@v1
         with:
-          who-to-greet: 'Mona the Octocat'
+          repository: '${{ github.repository }}'
+          dotnet-sdk-version: '6.0.x'
+          is-enabled-pack: true
+          publish-environment: 'staging'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
