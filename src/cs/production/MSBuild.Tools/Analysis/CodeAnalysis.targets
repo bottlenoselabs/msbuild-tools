@@ -1,0 +1,20 @@
+<Project>
+
+  <!-- Rosyln analyzers -->
+  <ItemGroup Condition=" '$(EnableAnalyzers)' == 'true' ">
+    <!-- NOTE: Rosyln expects a variable named `CodeAnalysisRuleSet` to exist and will use it! Do NOT change the name of this property! -->
+    <!-- <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)/CodeAnalysis.ruleset</CodeAnalysisRuleSet> -->
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)/StyleCop/StyleCop.globalconfig" />
+  </ItemGroup>
+
+  <!-- StyleCop -->
+  <Import Project="$(MSBuildThisFileDirectory)/StyleCop/StyleCop.targets" />
+
+  <!-- Code analysis suppressions -->
+  <ItemGroup Condition=" '$(EnableCodeAnalysisSuppressions)' == 'true' ">
+    <Compile Include="$(MSBuildThisFileDirectory)/analysis/**/*.cs">
+      <Link>Properties/%(Filename)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
+
+</Project>

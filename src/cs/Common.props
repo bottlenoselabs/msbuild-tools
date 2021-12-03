@@ -1,0 +1,11 @@
+<Project>
+
+    <Import Project="./production/MSBuild.Tools/MSBuild.Tools.props" />
+
+    <!-- StyleCop -->
+    <PropertyGroup>
+        <StyleCopSettingsFileName>StyleCop.json</StyleCopSettingsFileName>
+        <StyleCopSettingsFilePath>$(MSBuildThisFileDirectory)/$(StyleCopSettingsFileName)</StyleCopSettingsFilePath>
+    </PropertyGroup>
+
+</Project>

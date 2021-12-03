@@ -36,7 +36,7 @@
 
   <!-- NuGet -->
   <PropertyGroup>
-    <PackageOutputPath>$(GitRepositoryPath)nupkg</PackageOutputPath>
+    <PackageOutputPath>$(GitRepositoryPath)/nupkg</PackageOutputPath>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
@@ -45,8 +45,8 @@
     <DotSettingsFilePath>$(MSBuildProjectFile).DotSettings</DotSettingsFilePath>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)/My-MSBuild.props" Link="Properties/My-MSBuild.props" />
-    <None Include="$(MSBuildThisFileDirectory)/My-MSBuild.targets" Link="Properties/My-MSBuild.targets" />
+    <None Include="$(MSBuildThisFileDirectory)/MSBuild.Tools.props" Link="Properties/MSBuild.Tools.props" />
+    <None Include="$(MSBuildThisFileDirectory)/MSBuild.Tools.targets" Link="Properties/MSBuild.Tools.targets" />
     <None Include="$(MSBuildThisFileDirectory)/analysis/CodeAnalysis.props" Link="Properties/CodeAnalysis.props" />
     <None Include="$(MSBuildThisFileDirectory)/analysis/CodeAnalysis.targets" Link="Properties/CodeAnalysis.targets" />
     <None Condition="Exists('$(DotSettingsFilePath)')" Update="$(DotSettingsFilePath)" Visible="false" />
