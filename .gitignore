@@ -1,9 +1,12 @@
 # Build artifacts
-bin/
-obj/
+/bin
+/obj
 
 # macOS
 .DS_Store
 
 # NuGet packages
-nupkg/
+/nupkg
+
+# JetBrains
+/.idea
