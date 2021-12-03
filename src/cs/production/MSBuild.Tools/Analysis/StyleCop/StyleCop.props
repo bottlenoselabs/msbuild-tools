@@ -1,0 +1,7 @@
+<Project>
+  
+  <PropertyGroup>
+    <StyleCopSettingsFilePath>$(MSBuildThisFileDirectory)/StyleCop.json</StyleCopSettingsFilePath>
+  </PropertyGroup>
+
+</Project>
