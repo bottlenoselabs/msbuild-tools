@@ -1,13 +1,15 @@
-# my-msbuild
+# MSBuild.Tools
 
-My preferred settings and extensions for MSBuild.
+MSBuild extension tools.
 
 ## Developers: How to use
 
-### Option 1: Clone directory and copy files
+TODO:
 
-### Option 2: Add as Git submodule (preferred)
+- Add as NuGet package.
+```
+<PackageReference Include="bottlenoselabs.MSBuild.Tools" Version="2018.2.1" ExcludeAssets="all" PrivateAssets="All" GeneratePathProperty="true" />
+<Reference Include="$(Pkgbottlenoselabs_MSBuild_Tools)\??">
 
-### ~~Option 3: Add as NuGet package~~
-
-Not possible because of how MSBuild deals with the `BaseIntermediateOutputPath` property. `.props` and `.targets` can be added to your project though NuGet packages but they are imported as projects *after* the SDK `.props` and `.targets` are imported as projects.
+- Add a `.globalconfig` file in root of repository or root directory to configure or override rules.
+- Add `global_level = 101` to the file to signal that this file takes precedence.
