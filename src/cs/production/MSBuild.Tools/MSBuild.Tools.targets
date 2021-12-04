@@ -47,14 +47,14 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)/MSBuild.Tools.props" Link="Properties/MSBuild.Tools.props" />
     <None Include="$(MSBuildThisFileDirectory)/MSBuild.Tools.targets" Link="Properties/MSBuild.Tools.targets" />
-    <None Include="$(MSBuildThisFileDirectory)/analysis/CodeAnalysis.props" Link="Properties/CodeAnalysis.props" />
-    <None Include="$(MSBuildThisFileDirectory)/analysis/CodeAnalysis.targets" Link="Properties/CodeAnalysis.targets" />
+    <None Include="$(MSBuildThisFileDirectory)/Analysis/CodeAnalysis.props" Link="Properties/CodeAnalysis.props" />
+    <None Include="$(MSBuildThisFileDirectory)/Analysis/CodeAnalysis.targets" Link="Properties/CodeAnalysis.targets" />
     <None Condition="Exists('$(DotSettingsFilePath)')" Update="$(DotSettingsFilePath)" Visible="false" />
     <None Condition="Exists('$(DotSettingsFilePath)')" Include="$(DotSettingsFilePath)" Link="Properties/$(DotSettingsFilePath)" />
   </ItemGroup>
 
   <!-- Code analysis -->
-  <Import Project="$(MSBuildThisFileDirectory)/analysis/CodeAnalysis.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)/Analysis/CodeAnalysis.targets" />
 
   <!-- Remove obj folder; this folder sometimes shows up in the solution explorer in Rider / Visual Studio -->
   <ItemGroup>

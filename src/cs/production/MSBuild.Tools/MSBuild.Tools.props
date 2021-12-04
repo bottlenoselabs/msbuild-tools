@@ -64,7 +64,7 @@
   </PropertyGroup>
 
   <!-- Code analysis -->
-  <Import Project="$(MSBuildThisFileDirectory)/analysis/CodeAnalysis.props" />
+  <Import Project="$(MSBuildThisFileDirectory)/Analysis/CodeAnalysis.props" />
 
   <!-- Native ahead of time compilation (nAOT) -->
   <PropertyGroup Condition="'$(AheadOfTimeCompilation)' == 'true'">
