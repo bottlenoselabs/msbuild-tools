@@ -1,6 +1,6 @@
 # MSBuild.Tools
 
-MSBuild extension tools.
+MSBuild extensions and settings used for all C# projects at Bottlenose Labs Inc.
 
 ## Developers: How to use
 
