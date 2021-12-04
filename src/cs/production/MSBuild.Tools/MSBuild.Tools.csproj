@@ -15,7 +15,12 @@
 
     <!-- Include all content -->
     <ItemGroup>
-        <Content Include="$(MSBuildThisFileDirectory)/**/*" Pack="true" PackageCopyToOutput="true" PackageFlatten="false" />
+        <Content Include="$(MSBuildThisFileDirectory)/**/*">
+            <PackagePath>content/</PackagePath>
+            <Pack>true</Pack>
+            <PackageFlatten>false</PackageFlatten>
+            <PackageCopyToOutput>true</PackageCopyToOutput>
+        </Content>
     </ItemGroup>
 
 </Project>
