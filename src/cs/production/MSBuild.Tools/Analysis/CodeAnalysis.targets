@@ -12,9 +12,13 @@
 
   <!-- Code analysis suppressions -->
   <ItemGroup Condition=" '$(EnableCodeAnalysisSuppressions)' == 'true' ">
+    <Compile Remove="$(MSBuildThisFileDirectory)/**/*.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)/**/*.cs">
       <Link>Properties/%(Filename)%(Extension)</Link>
     </Compile>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(EnableCodeAnalysisSuppressions)' == 'false'">
+    <Compile Remove="$(MSBuildThisFileDirectory)/**/*.cs" />
   </ItemGroup>
 
 </Project>
