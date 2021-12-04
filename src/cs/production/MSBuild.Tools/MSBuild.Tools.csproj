@@ -13,4 +13,9 @@
         <PackageDescription>MSBuild extensions and settings used for all C# projects at Bottlenose Labs Inc.</PackageDescription>
     </PropertyGroup>
 
+    <!-- Include all content -->
+    <ItemGroup>
+        <Content Include="$(MSBuildThisFileDirectory)/**/*" Pack="true" PackageCopyToOutput="true" PackageFlatten="false" />
+    </ItemGroup>
+
 </Project>
