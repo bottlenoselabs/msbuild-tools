@@ -3,11 +3,9 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: ".NET"
     steps:
-      - uses: actions/checkout@v2
-      - id: foo
-        uses: bottlenoselabs/github-actions-dotnet@v1
+      - uses: bottlenoselabs/github-actions-dotnet@v1
         with:
           repository: '${{ github.repository }}'
           dotnet-sdk-version: '6.0.x'
@@ -15,5 +13,3 @@ jobs:
           publish-environment: 'staging'
           myget-access-token: '{{ secrets.MYGET_ACCESS_TOKEN }}'
           nuget-access-token: '{{ secrets.NUGET_ACCESS_TOKEN }}'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
-        shell: bash
