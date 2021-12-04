@@ -1,6 +1,8 @@
 <Project>
-  
+
+  <!-- Settings -->
   <PropertyGroup>
+    <EnableAnalyzersStyleCop>false</EnableAnalyzersStyleCop>
     <StyleCopSettingsFilePath>$(MSBuildThisFileDirectory)/StyleCop.json</StyleCopSettingsFilePath>
   </PropertyGroup>
 

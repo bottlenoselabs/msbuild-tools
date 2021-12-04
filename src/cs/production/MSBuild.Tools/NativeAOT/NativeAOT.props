@@ -1,73 +1,41 @@
 <Project>
 
-  <!-- Custom project settings -->
+  <!-- Settings -->
   <PropertyGroup>
-    <GitRepositoryPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))</GitRepositoryPath>
-    <EnableRootNamespace>true</EnableRootNamespace>
-    <EnableCodeCoverage>true</EnableCodeCoverage>
+    <EnableDefaultRuntimeIdentifier>false</EnableDefaultRuntimeIdentifier>
     <AheadOfTimeCompilation>false</AheadOfTimeCompilation>
-    <IsWindows Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true'">true</IsWindows> 
-    <IsMacOS Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' == 'true'">true</IsMacOS> 
-    <IsLinux Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">true</IsLinux>
-    <IsFreeBSD Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">true</IsFreeBSD>
+  </PropertyGroup>
+
+  <!-- Platform -->
+  <PropertyGroup>
+    <IsWindows Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true' ">true</IsWindows> 
+    <IsMacOS Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' == 'true' ">true</IsMacOS> 
+    <IsLinux Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true' ">true</IsLinux>
+    <IsFreeBSD Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true' ">true</IsFreeBSD>
     <ArchitectureCaseSensitive>$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)</ArchitectureCaseSensitive>
     <Architecture>$(ArchitectureCaseSensitive.ToLower())</Architecture>
-    <Is32Bit Condition="'$(Architecture)' == 'x86' OR '$(Architecture)' == 'arm32'">true</Is32Bit>
-    <Is32Bit Condition="'$(Architecture)' != 'x86' AND '$(Architecture)' != 'arm32'">false</Is32Bit>
-    <Is64Bit Condition="'$(Architecture)' == 'x64' OR '$(Architecture)' == 'arm64'">true</Is64Bit>
-    <Is64Bit Condition="'$(Architecture)' != 'x64' AND '$(Architecture)' != 'arm64'">false</Is64Bit>
-    <EnableDefaultRuntimeIdentifier>false</EnableDefaultRuntimeIdentifier>
+    <Is32Bit Condition=" '$(Architecture)' == 'x86' OR '$(Architecture)' == 'arm32' ">true</Is32Bit>
+    <Is32Bit Condition=" '$(Architecture)' != 'x86' AND '$(Architecture)' != 'arm32' ">false</Is32Bit>
+    <Is64Bit Condition=" '$(Architecture)' == 'x64' OR '$(Architecture)' == 'arm64' ">true</Is64Bit>
+    <Is64Bit Condition=" '$(Architecture)' != 'x64' AND '$(Architecture)' != 'arm64' ">false</Is64Bit>
   </PropertyGroup>
 
   <!-- Platform symbols settings -->
-  <PropertyGroup Condition="'$(IsWindows)'=='true'">
+  <PropertyGroup Condition=" '$(IsWindows)'=='true' ">
     <DefineConstants>WINDOWS</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(IsMacOS)'=='true'">
+  <PropertyGroup Condition=" '$(IsMacOS)'=='true' ">
     <DefineConstants>MACOS</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(IsLinux)'=='true'">
+  <PropertyGroup Condition=" '$(IsLinux)'=='true' ">
     <DefineConstants>LINUX</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(IsFreeBSD)'=='true'">
+  <PropertyGroup Condition=" '$(IsFreeBSD)'=='true' ">
     <DefineConstants>FREEBSD</DefineConstants>
   </PropertyGroup>
 
-  <!-- MSBuild project settings -->
-  <PropertyGroup>
-    <LangVersion>latest</LangVersion>
-    <Nullable>enable</Nullable>
-    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <OutputPath>$(GitRepositoryPath)/bin/$(MSBuildProjectName)/$(Configuration)</OutputPath>
-    <BaseIntermediateOutputPath>$(GitRepositoryPath)/obj/$(MSBuildProjectName)/$(Configuration)</BaseIntermediateOutputPath>
-    <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
-    <RestoreOutputPath>$(BaseIntermediateOutputPath)</RestoreOutputPath>
-    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
-    <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
-    <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PublishReadyToRun>false</PublishReadyToRun>
-    <TieredCompilation>false</TieredCompilation>
-  </PropertyGroup>
-
-  <!-- StyleCop -->
-  <PropertyGroup>
-    <CodeAnalysisRuleSetFilePath>$(MSBuildThisFileDirectory)CodeAnalysis.ruleset</CodeAnalysisRuleSetFilePath>
-    <StyleCopSettingsFilePath>$(MSBuildThisFileDirectory)StyleCop.json</StyleCopSettingsFilePath>
-  </PropertyGroup>
-
-  <!-- NuGet -->
-  <PropertyGroup>
-    <IsPackable>false</IsPackable>
-    <IncludeSymbols>false</IncludeSymbols>
-  </PropertyGroup>
-
-  <!-- Code analysis -->
-  <Import Project="$(MSBuildThisFileDirectory)/Analysis/CodeAnalysis.props" />
-
-  <!-- Native ahead of time compilation (nAOT) -->
-  <PropertyGroup Condition="'$(AheadOfTimeCompilation)' == 'true'">
+  <!-- Native ahead of time compilation -->
+  <PropertyGroup Condition=" '$(AheadOfTimeCompilation)' == 'true' ">
 
     <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>

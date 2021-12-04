@@ -8,14 +8,37 @@
     <!-- NuGet -->
     <PropertyGroup>
         <IsPackable>true</IsPackable>
-        <PackageId>bottlenoselabs.MSBuild.Tools</PackageId>
         <RepositoryUrl>https://github.com/bottlenoselabs/msbuild-tools</RepositoryUrl>
         <PackageDescription>MSBuild extensions and settings used for all C# projects at Bottlenose Labs Inc.</PackageDescription>
     </PropertyGroup>
-
-    <!-- Include all content -->
+    
+    <!-- NuGet package content-->
     <ItemGroup>
-        <Content Include="$(MSBuildThisFileDirectory)/**/*">
+        <Content Update="$(MSBuildThisFileDirectory)/**/*.props">
+            <PackagePath>build/</PackagePath>
+            <Pack>true</Pack>
+            <PackageFlatten>false</PackageFlatten>
+            <PackageCopyToOutput>true</PackageCopyToOutput>
+        </Content>
+        <Content Update="$(MSBuildThisFileDirectory)/**/*.targets">
+            <PackagePath>build/</PackagePath>
+            <Pack>true</Pack>
+            <PackageFlatten>false</PackageFlatten>
+            <PackageCopyToOutput>true</PackageCopyToOutput>
+        </Content>
+        <Content Update="$(MSBuildThisFileDirectory)/**/*.globalconfig">
+            <PackagePath>build/</PackagePath>
+            <Pack>true</Pack>
+            <PackageFlatten>false</PackageFlatten>
+            <PackageCopyToOutput>true</PackageCopyToOutput>
+        </Content>
+        <Content Update="$(MSBuildThisFileDirectory)/**/*.cs">
+            <PackagePath>build/</PackagePath>
+            <Pack>true</Pack>
+            <PackageFlatten>false</PackageFlatten>
+            <PackageCopyToOutput>true</PackageCopyToOutput>
+        </Content>
+        <Content Update="$(MSBuildThisFileDirectory)/**/*.json">
             <PackagePath>build/</PackagePath>
             <Pack>true</Pack>
             <PackageFlatten>false</PackageFlatten>

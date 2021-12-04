@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBuild.Tools", "src\cs\production\MSBuild.Tools\MSBuild.Tools.csproj", "{5202F0FA-20B0-4653-BE73-C4E8416F8ECB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "production", "production", "{BFBBB1B0-6478-427A-9ACF-12109C3F73C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{790805DB-1497-4739-80C9-AF40679BD99B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "src\cs\tests\ClassLibrary1\ClassLibrary1.csproj", "{AA2A9DBB-8358-4236-B5B6-773FE0FF7711}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +24,13 @@ Global
 		{5202F0FA-20B0-4653-BE73-C4E8416F8ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5202F0FA-20B0-4653-BE73-C4E8416F8ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5202F0FA-20B0-4653-BE73-C4E8416F8ECB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA2A9DBB-8358-4236-B5B6-773FE0FF7711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA2A9DBB-8358-4236-B5B6-773FE0FF7711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA2A9DBB-8358-4236-B5B6-773FE0FF7711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA2A9DBB-8358-4236-B5B6-773FE0FF7711}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5202F0FA-20B0-4653-BE73-C4E8416F8ECB} = {BFBBB1B0-6478-427A-9ACF-12109C3F73C2}
+		{AA2A9DBB-8358-4236-B5B6-773FE0FF7711} = {790805DB-1497-4739-80C9-AF40679BD99B}
 	EndGlobalSection
 EndGlobal

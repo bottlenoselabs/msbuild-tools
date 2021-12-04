@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <EnableAnalyzers>true</EnableAnalyzers>
+        <EnableAnalyzersStyleCop>true</EnableAnalyzersStyleCop>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="bottlenoselabs.MSBuild.Tools" Version="0.1.83" PrivateAssets="true" ExcludeAssets="true" />
+    </ItemGroup>
+
+</Project>

@@ -3,7 +3,6 @@
   <!-- Settings -->
   <PropertyGroup>
     <EnableAnalyzers>false</EnableAnalyzers>
-    <EnableAnalyzersStyleCop>false</EnableAnalyzersStyleCop>
     <EnableCodeAnalysisSuppressions>true</EnableCodeAnalysisSuppressions>
   </PropertyGroup>
 

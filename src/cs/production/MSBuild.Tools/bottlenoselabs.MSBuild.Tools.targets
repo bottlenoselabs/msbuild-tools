@@ -1,0 +1,47 @@
+<Project>
+
+  <!-- Version -->
+  <PropertyGroup Condition="'$(Version)' == '' OR '$(Version)' == '1.0.0'">
+    <Version>0.0.0.0-pre</Version>
+  </PropertyGroup>
+
+  <!-- Enable/disable root namespace -->
+  <PropertyGroup Condition=" '$(EnableRootNamespace)' == 'false' ">
+    <RootNamespace />
+  </PropertyGroup>
+
+  <!-- Enable/disable code coverage -->
+  <ItemGroup Condition=" '$(EnableCodeCoverage)' == 'false' ">
+    <Compile Include="$(MSBuildThisFileDirectory)/AssemblyDisableCodeCoverage.cs">
+      <Link>Properties/%(Filename)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
+
+  <!-- NuGet -->
+  <PropertyGroup>
+    <PackageId>$(Company).$(AssemblyName)</PackageId>
+  </PropertyGroup>
+
+  <!-- Properties folder -->
+  <PropertyGroup>
+    <DotSettingsFilePath>$(MSBuildProjectFile).DotSettings</DotSettingsFilePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Condition="Exists('$(DotSettingsFilePath)')" Update="$(DotSettingsFilePath)" Visible="false" />
+    <None Condition="Exists('$(DotSettingsFilePath)')" Include="$(DotSettingsFilePath)" Link="Properties/$(DotSettingsFilePath)" />
+  </ItemGroup>
+
+  <!-- Code analysis -->
+  <Import Project="$(MSBuildThisFileDirectory)/Analysis/CodeAnalysis.targets" />
+
+  <!-- NativeAOT -->
+  <Import Project="$(MSBuildThisFileDirectory)/NativeAOT/NativeAOT.targets" />
+
+  <!-- Remove obj folder; this folder sometimes shows up in the solution explorer in Rider / Visual Studio -->
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+</Project>

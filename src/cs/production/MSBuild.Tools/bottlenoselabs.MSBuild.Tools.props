@@ -1,0 +1,78 @@
+<Project>
+
+  <!-- Custom project settings -->
+  <PropertyGroup>
+    <GitRepositoryPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))</GitRepositoryPath>
+    <EnableRootNamespace>true</EnableRootNamespace>
+    <EnableCodeCoverage>true</EnableCodeCoverage>
+  </PropertyGroup>
+
+  <!-- Platform symbols settings -->
+  <PropertyGroup Condition="'$(IsWindows)'=='true' ">
+    <DefineConstants>WINDOWS</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(IsMacOS)'=='true' ">
+    <DefineConstants>MACOS</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(IsLinux)'=='true' ">
+    <DefineConstants>LINUX</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(IsFreeBSD)'=='true' ">
+    <DefineConstants>FREEBSD</DefineConstants>
+  </PropertyGroup>
+
+  <!-- MSBuild project settings -->
+  <PropertyGroup>
+    <Company>bottlenoselabs</Company>
+    <Authors>bottlenoselabs</Authors>
+    <Copyright>© $([System.DateTime]::Now.ToString(yyyy)) Bottlenose Labs Inc.</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <OutputPath>$(GitRepositoryPath)/bin/$(MSBuildProjectName)/$(Configuration)</OutputPath>
+<!--    <BaseIntermediateOutputPath>$(GitRepositoryPath)/obj/$(MSBuildProjectName)/$(Configuration)</BaseIntermediateOutputPath>-->
+<!--    <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>-->
+    <RestoreOutputPath>$(BaseIntermediateOutputPath)</RestoreOutputPath>
+    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
+    <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <TieredCompilation>false</TieredCompilation>
+  </PropertyGroup>
+
+  <!-- NuGet -->
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IncludeSymbols>false</IncludeSymbols>
+    <PackageOutputPath>$(GitRepositoryPath)/nupkg</PackageOutputPath>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)/**/*.props">
+      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)/**/*.targets">
+      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)/**/*.globalconfig">
+      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)/**/*.cs">
+      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)/**/*.json">
+      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+    <Content Remove="$(MSBuildThisFileDirectory)/obj/**/*" />
+  </ItemGroup>
+
+  <!-- Code analysis -->
+  <Import Project="$(MSBuildThisFileDirectory)/Analysis/CodeAnalysis.props" />
+
+  <!-- NativeAOT -->
+  <Import Project="$(MSBuildThisFileDirectory)/NativeAOT/NativeAOT.props" />
+
+</Project>

@@ -1,5 +1,0 @@
-<Project>
-
-    <Import Project="./production/MSBuild.Tools/MSBuild.Tools.targets" />
-
-</Project>

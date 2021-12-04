@@ -1,0 +1,23 @@
+<Project>
+
+    <PropertyGroup>
+        <BaseIntermediateOutputPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), .gitignore))/obj/$(MSBuildProjectName)/$(Configuration)</BaseIntermediateOutputPath>
+        <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
+    </PropertyGroup>
+
+    <Import Project="./production/MSBuild.Tools/bottlenoselabs.MSBuild.Tools.props" />
+
+    <!-- MSBuild project settings -->
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <!-- StyleCop -->
+    <PropertyGroup>
+        <StyleCopSettingsFileName>StyleCop.json</StyleCopSettingsFileName>
+        <StyleCopSettingsFilePath>$(MSBuildThisFileDirectory)/$(StyleCopSettingsFileName)</StyleCopSettingsFilePath>
+    </PropertyGroup>
+
+</Project>
