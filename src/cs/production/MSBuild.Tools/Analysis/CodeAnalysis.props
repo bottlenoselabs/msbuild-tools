@@ -8,6 +8,6 @@
   </PropertyGroup>
 
   <!-- StyleCop -->
-  <Import Project="$(MSBuildThisFileDirectory)/styleCop/StyleCop.props" />
+  <Import Project="$(MSBuildThisFileDirectory)/StyleCop/StyleCop.props" />
 
 </Project>
