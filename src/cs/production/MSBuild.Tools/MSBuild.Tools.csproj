@@ -8,7 +8,9 @@
     <!-- NuGet -->
     <PropertyGroup>
         <IsPackable>true</IsPackable>
-        <EnableCodeAnalysisSuppressions>true</EnableCodeAnalysisSuppressions>
+        <PackageId>bottlenoselabs.MSBuild.Tools</PackageId>
+        <RepositoryUrl>https://github.com/bottlenoselabs/msbuild-tools</RepositoryUrl>
+        <PackageDescription>MSBuild extensions and settings used for all C# projects at Bottlenose Labs Inc.</PackageDescription>
     </PropertyGroup>
 
 </Project>
