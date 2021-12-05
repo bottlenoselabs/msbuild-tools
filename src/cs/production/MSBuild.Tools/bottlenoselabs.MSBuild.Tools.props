@@ -7,20 +7,6 @@
     <EnableCodeCoverage>true</EnableCodeCoverage>
   </PropertyGroup>
 
-  <!-- Platform symbols settings -->
-  <PropertyGroup Condition="'$(IsWindows)'=='true' ">
-    <DefineConstants>WINDOWS</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(IsMacOS)'=='true' ">
-    <DefineConstants>MACOS</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(IsLinux)'=='true' ">
-    <DefineConstants>LINUX</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(IsFreeBSD)'=='true' ">
-    <DefineConstants>FREEBSD</DefineConstants>
-  </PropertyGroup>
-
   <!-- MSBuild project settings -->
   <PropertyGroup>
     <Company>bottlenoselabs</Company>
