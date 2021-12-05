@@ -11,13 +11,6 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
-
-    <!-- StyleCop -->
-    <PropertyGroup>
-        <StyleCopSettingsFileName>StyleCop.json</StyleCopSettingsFileName>
-        <StyleCopSettingsFilePath>$(MSBuildThisFileDirectory)/$(StyleCopSettingsFileName)</StyleCopSettingsFilePath>
     </PropertyGroup>
 
 </Project>
