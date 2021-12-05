@@ -4,12 +4,27 @@ MSBuild extensions and settings used for all C# projects at Bottlenose Labs Inc.
 
 ## Developers: How to use
 
-TODO:
+1. Add the NuGet package to your `.csproj`:
 
-- Add as NuGet package.
+```xml
+<PackageReference Include="bottlenoselabs.MSBuild.Tools" Version="*.*">
+    <PrivateAssets>all</PrivateAssets>
+    <IncludeAssets>build</IncludeAssets>
+</PackageReference>
 ```
-<PackageReference Include="bottlenoselabs.MSBuild.Tools" Version="2018.2.1" ExcludeAssets="all" PrivateAssets="All" GeneratePathProperty="true" />
-<Reference Include="$(Pkgbottlenoselabs_MSBuild_Tools)\??">
 
-- Add a `.globalconfig` file in root of repository or root directory to configure or override rules.
-- Add `global_level = 101` to the file to signal that this file takes precedence.
+2. Create a `.globalconfig` file to configure C# Rosyln analyzers:
+
+```xml
+# NOTE: Requires .NET 5 SDK (VS2019 16.8 or later)
+#   but recommended to use .NET 6 SDK for better support and features such as `global_level`
+#   https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-files#global-analyzerconfig
+is_global = true
+global_level = 101
+
+# StyleCop Rules
+# Description: StyleCop code analysis rules for C# projects.
+dotnet_diagnostic.SA1309.severity = error
+```
+
+3. 
