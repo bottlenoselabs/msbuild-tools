@@ -23,8 +23,11 @@
   </ItemGroup>
 
   <!-- Enable/disable CLS complaint -->
-  <ItemGroup Condition=" '$(EnableCLSComplaint)' == 'true' ">
-    <Compile Include="$(MSBuildThisFileDirectory)/AssemblyEnableCLSComplaint.cs">
+  <ItemGroup>
+    <Compile Condition=" '$(EnableCLSComplaint)' == 'true' " Include="$(MSBuildThisFileDirectory)/AssemblyEnableCLSComplaint.cs">
+      <Link>Properties/%(Filename)%(Extension)</Link>
+    </Compile>
+    <Compile Condition=" '$(EnableCLSComplaint)' == 'false' " Include="$(MSBuildThisFileDirectory)/AssemblyDisableCLSComplaint.cs">
       <Link>Properties/%(Filename)%(Extension)</Link>
     </Compile>
   </ItemGroup>
