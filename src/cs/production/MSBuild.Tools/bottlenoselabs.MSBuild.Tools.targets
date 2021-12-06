@@ -5,6 +5,11 @@
     <Version>0.0.0.0-pre</Version>
   </PropertyGroup>
 
+  <!-- NuGet -->
+  <PropertyGroup>
+    <PackageId>$(Company).$(AssemblyName)</PackageId>
+  </PropertyGroup>
+
   <!-- Enable/disable root namespace -->
   <PropertyGroup Condition=" '$(EnableRootNamespace)' == 'false' ">
     <RootNamespace />
@@ -17,10 +22,17 @@
     </Compile>
   </ItemGroup>
 
-  <!-- NuGet -->
-  <PropertyGroup>
-    <PackageId>$(Company).$(AssemblyName)</PackageId>
-  </PropertyGroup>
+  <!-- Enable/disable CLS complaint -->
+  <ItemGroup Condition=" '$(EnableCLSComplaint)' == 'false' ">
+    <Compile Include="$(MSBuildThisFileDirectory)/AssemblyDisableCLSComplaint.cs">
+      <Link>Properties/%(Filename)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(EnableCLSComplaint)' == 'true' ">
+    <Compile Include="$(MSBuildThisFileDirectory)/AssemblyEnableCLSComplaint.cs">
+      <Link>Properties/%(Filename)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
 
   <!-- Properties folder -->
   <PropertyGroup>

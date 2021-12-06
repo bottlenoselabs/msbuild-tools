@@ -5,6 +5,7 @@
     <GitRepositoryPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))</GitRepositoryPath>
     <EnableRootNamespace>true</EnableRootNamespace>
     <EnableCodeCoverage>true</EnableCodeCoverage>
+    <EnableCLSCompliant>true</EnableCLSCompliant>
   </PropertyGroup>
 
   <!-- MSBuild project settings -->
@@ -50,9 +51,6 @@
       <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Content>
     <Content Include="$(MSBuildThisFileDirectory)/**/*.json">
-      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </Content>
-    <Content Include="$(MSBuildThisFileDirectory)/**/*.ruleset">
       <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Content>
     <Content Remove="$(MSBuildThisFileDirectory)/obj/**/*" />

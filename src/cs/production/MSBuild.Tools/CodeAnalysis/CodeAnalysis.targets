@@ -10,8 +10,8 @@
   <Import Project="$(MSBuildThisFileDirectory)/StyleCop/StyleCop.targets" />
 
   <!-- Code analysis suppressions -->
-  <ItemGroup Condition=" '$(EnableCodeAnalysisSuppressions)' == 'false' ">
-    <Compile Remove="$(MSBuildThisFileDirectory)/**/*.cs" />
+  <ItemGroup Condition=" '$(EnableCodeAnalysisSuppressions)' == 'true' ">
+    <Compile Include="$(MSBuildThisFileDirectory)/AssemblyCodeAnalysisSuppressions.cs" />
   </ItemGroup>
 
 </Project>
