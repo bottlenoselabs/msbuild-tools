@@ -3,6 +3,7 @@
     <!-- MSBuild project settings -->
     <PropertyGroup>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <EnableCodeAnalysisSuppressions>false</EnableCodeAnalysisSuppressions>
     </PropertyGroup>
 
     <!-- Custom project settings -->

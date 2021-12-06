@@ -5,7 +5,7 @@
     <GitRepositoryPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))</GitRepositoryPath>
     <EnableRootNamespace>true</EnableRootNamespace>
     <EnableCodeCoverage>true</EnableCodeCoverage>
-    <EnableCLSCompliant>true</EnableCLSCompliant>
+    <EnableCLSCompliant>false</EnableCLSCompliant>
   </PropertyGroup>
 
   <!-- MSBuild project settings -->
