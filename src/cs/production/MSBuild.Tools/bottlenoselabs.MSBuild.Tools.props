@@ -53,6 +53,9 @@
     <Content Include="$(MSBuildThisFileDirectory)/**/*.json">
       <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Content>
+    <Content Include="$(MSBuildThisFileDirectory)/**/*.ruleset">
+      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
     <Content Remove="$(MSBuildThisFileDirectory)/obj/**/*" />
   </ItemGroup>
 
