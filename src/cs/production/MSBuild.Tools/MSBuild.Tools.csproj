@@ -40,12 +40,12 @@
             <PackageFlatten>false</PackageFlatten>
             <PackageCopyToOutput>true</PackageCopyToOutput>
         </Content>
-        <Compile Update="$(MSBuildThisFileDirectory)/**/*.cs">
+        <Content Update="$(MSBuildThisFileDirectory)/**/*.cs">
             <PackagePath>build/</PackagePath>
             <Pack>true</Pack>
             <PackageFlatten>false</PackageFlatten>
             <PackageCopyToOutput>true</PackageCopyToOutput>
-        </Compile>
+        </Content>
         <Content Update="$(MSBuildThisFileDirectory)/**/*.json">
             <PackagePath>build/</PackagePath>
             <Pack>true</Pack>
