@@ -6,7 +6,7 @@ obj/
 .DS_Store
 
 # NuGet packages
-/nupkg
+*.nupkg
 
 # JetBrains
 /.idea
