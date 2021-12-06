@@ -16,20 +16,14 @@
   </PropertyGroup>
 
   <!-- Enable/disable code coverage -->
-  <ItemGroup Condition=" '$(EnableCodeCoverage)' == 'false' ">
-    <Compile Include="$(MSBuildThisFileDirectory)/AssemblyDisableCodeCoverage.cs">
-      <Link>Properties/%(Filename)%(Extension)</Link>
-    </Compile>
+  <ItemGroup Condition=" '$(EnableCodeCoverage)' == 'true' ">
+    <Compile Remove="$(MSBuildThisFileDirectory)/AssemblyDisableCodeCoverage.cs" />
   </ItemGroup>
 
   <!-- Enable/disable CLS complaint -->
   <ItemGroup>
-    <Compile Condition=" '$(EnableCLSComplaint)' == 'true' " Include="$(MSBuildThisFileDirectory)/AssemblyEnableCLSComplaint.cs">
-      <Link>Properties/%(Filename)%(Extension)</Link>
-    </Compile>
-    <Compile Condition=" '$(EnableCLSComplaint)' == 'false' " Include="$(MSBuildThisFileDirectory)/AssemblyDisableCLSComplaint.cs">
-      <Link>Properties/%(Filename)%(Extension)</Link>
-    </Compile>
+    <Compile Condition=" '$(EnableCLSCompliant)' != 'false' " Remove="$(MSBuildThisFileDirectory)/AssemblyDisableCLSCompliant.cs" />
+    <Compile Condition=" '$(EnableCLSCompliant)' != 'true' " Remove="$(MSBuildThisFileDirectory)/AssemblyEnableCLSCompliant.cs" />
   </ItemGroup>
 
   <!-- Properties folder -->

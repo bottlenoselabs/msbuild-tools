@@ -4,6 +4,7 @@
     <PropertyGroup>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <EnableCodeAnalysisSuppressions>false</EnableCodeAnalysisSuppressions>
+        <EnableCLSCompliant>none</EnableCLSCompliant>
     </PropertyGroup>
 
     <!-- Custom project settings -->
@@ -39,12 +40,12 @@
             <PackageFlatten>false</PackageFlatten>
             <PackageCopyToOutput>true</PackageCopyToOutput>
         </Content>
-        <Content Update="$(MSBuildThisFileDirectory)/**/*.cs">
+        <Compile Update="$(MSBuildThisFileDirectory)/**/*.cs">
             <PackagePath>build/</PackagePath>
             <Pack>true</Pack>
             <PackageFlatten>false</PackageFlatten>
             <PackageCopyToOutput>true</PackageCopyToOutput>
-        </Content>
+        </Compile>
         <Content Update="$(MSBuildThisFileDirectory)/**/*.json">
             <PackagePath>build/</PackagePath>
             <Pack>true</Pack>

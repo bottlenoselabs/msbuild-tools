@@ -47,9 +47,9 @@
     <Content Include="$(MSBuildThisFileDirectory)/**/*.globalconfig">
       <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)/**/*.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)/**/*.cs">
       <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </Content>
+    </Compile>
     <Content Include="$(MSBuildThisFileDirectory)/**/*.json">
       <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Content>
