@@ -6,6 +6,11 @@ using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage(
 	"Microsoft.Naming",
+	"CA1062:ValidateArgumentsOfPublicMethods",
+	Justification = "Always use C# nullables which makes this rule redundant and noisy.")]
+
+[assembly: SuppressMessage(
+	"Microsoft.Naming",
 	"CA1051:DoNotDeclareVisibleInstanceFields",
 	Justification = "'fields should be as an implementation detail' is wrong; fields are data and developers need to work with data.")]
 
