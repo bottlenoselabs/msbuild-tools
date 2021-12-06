@@ -4,13 +4,17 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+    
+    <PropertyGroup>
         <EnableAnalyzers>true</EnableAnalyzers>
         <EnableAnalyzersStyleCop>true</EnableAnalyzersStyleCop>
-        <IsPackable>false</IsPackable>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="bottlenoselabs.MSBuild.Tools" Version="0.1.86" PrivateAssets="true" ExcludeAssets="true" />
+        <PackageReference Include="bottlenoselabs.MSBuild.Tools" Version="0.0.0-pre" PrivateAssets="true" ExcludeAssets="true" GeneratePathProperty="true" />
     </ItemGroup>
 
 </Project>

@@ -5,6 +5,12 @@
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
     </PropertyGroup>
 
+    <!-- Custom project settings -->
+    <PropertyGroup>
+        <EnableAnalyzers>true</EnableAnalyzers>
+        <EnableAnalyzersStyleCop>true</EnableAnalyzersStyleCop>
+    </PropertyGroup>
+
     <!-- NuGet -->
     <PropertyGroup>
         <IsPackable>true</IsPackable>
@@ -39,6 +45,12 @@
             <PackageCopyToOutput>true</PackageCopyToOutput>
         </Content>
         <Content Update="$(MSBuildThisFileDirectory)/**/*.json">
+            <PackagePath>build/</PackagePath>
+            <Pack>true</Pack>
+            <PackageFlatten>false</PackageFlatten>
+            <PackageCopyToOutput>true</PackageCopyToOutput>
+        </Content>
+        <Content Update="$(MSBuildThisFileDirectory)/**/*.ruleset">
             <PackagePath>build/</PackagePath>
             <Pack>true</Pack>
             <PackageFlatten>false</PackageFlatten>

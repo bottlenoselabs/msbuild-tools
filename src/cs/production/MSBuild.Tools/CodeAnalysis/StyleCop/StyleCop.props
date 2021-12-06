@@ -1,0 +1,14 @@
+<Project>
+
+  <!-- Settings -->
+  <PropertyGroup>
+    <EnableAnalyzersStyleCop Condition=" '$(EnableAnalyzersStyleCop)' == ''">false</EnableAnalyzersStyleCop>
+    <StyleCopSettingsFilePath>$(MSBuildThisFileDirectory)/StyleCop.json</StyleCopSettingsFilePath>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(EnableAnalyzers)' == 'true' AND '$(EnableAnalyzersStyleCop)' == 'true' ">
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)/StyleCop.globalconfig" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354" PrivateAssets="all" />
+  </ItemGroup>
+
+</Project>

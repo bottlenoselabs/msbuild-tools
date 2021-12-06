@@ -5,4 +5,15 @@ namespace ClassLibrary1;
 
 public class Class1
 {
+    private readonly string _x;
+
+    public Class1(string x)
+    {
+        _x = x;
+    }
+
+    public void X()
+    {
+        Console.Write(_x);
+    }
 }

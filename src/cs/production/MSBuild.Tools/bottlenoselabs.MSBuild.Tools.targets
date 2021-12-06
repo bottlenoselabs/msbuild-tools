@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <!-- Code analysis -->
-  <Import Project="$(MSBuildThisFileDirectory)/Analysis/CodeAnalysis.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)/CodeAnalysis/CodeAnalysis.targets" />
 
   <!-- NativeAOT -->
   <Import Project="$(MSBuildThisFileDirectory)/NativeAOT/NativeAOT.targets" />

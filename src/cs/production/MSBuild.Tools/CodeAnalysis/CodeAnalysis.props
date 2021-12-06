@@ -1,0 +1,23 @@
+<Project>
+
+  <!-- Custom settings -->
+  <PropertyGroup>
+    <EnableAnalyzers Condition=" '$(EnableAnalyzers)' == '' ">false</EnableAnalyzers>
+    <EnableCodeAnalysisSuppressions Condition=" '$(EnableCodeAnalysisSuppressions)' == '' ">true</EnableCodeAnalysisSuppressions>
+  </PropertyGroup>
+
+  <!-- MSBuild settings -->
+  <PropertyGroup Condition=" '$(EnableAnalyzers)' == 'true' ">
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisMode>all</AnalysisMode>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <!-- StyleCop -->
+  <Import Project="$(MSBuildThisFileDirectory)/StyleCop/StyleCop.props" />
+
+</Project>

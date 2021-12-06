@@ -52,11 +52,14 @@
     <Content Include="$(MSBuildThisFileDirectory)/**/*.json">
       <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Content>
+    <Content Include="$(MSBuildThisFileDirectory)/**/*.ruleset">
+      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
     <Content Remove="$(MSBuildThisFileDirectory)/obj/**/*" />
   </ItemGroup>
 
   <!-- Code analysis -->
-  <Import Project="$(MSBuildThisFileDirectory)/Analysis/CodeAnalysis.props" />
+  <Import Project="$(MSBuildThisFileDirectory)/CodeAnalysis/CodeAnalysis.props" />
 
   <!-- NativeAOT -->
   <Import Project="$(MSBuildThisFileDirectory)/NativeAOT/NativeAOT.props" />
