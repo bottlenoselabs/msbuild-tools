@@ -8,6 +8,7 @@ jobs:
       - uses: bottlenoselabs/github-actions-dotnet@v1
         with:
           repository: '${{ github.repository }}'
+          solution-or-project: './src/cs/production/MSBuild.Tools/MSBuild.Tools.csproj'
           dotnet-sdk-version: '6.0.x'
           is-enabled-pack: true
           publish-environment: 'staging'
