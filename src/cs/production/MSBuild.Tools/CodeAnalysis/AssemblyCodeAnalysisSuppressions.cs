@@ -29,16 +29,17 @@ using System.Diagnostics.CodeAnalysis;
 	Justification = "Naming of types with a certain suffix like 'Exception' or 'Collection' should not reserved just for Microsoft; developers should be free to name types as they wish.")]
 
 [assembly: SuppressMessage(
+	"Microsoft Naming", 
+	"CA1720", 
+	MessageId = "Identifier contains type name",
+	Justification = "Developers should know the difference between a builtin type and an identifier on a type with the same name.")]
+
+[assembly: SuppressMessage(
 	"Microsoft Performance",
 	"CA1822",
 	MessageId = "Mark members as static",
 	Justification = "If something could be static but it's not then the developer made a and deliberate choice.")]
 
-// [assembly: SuppressMessage(
-// 	"Microsoft Naming",
-// 	"CA1720:IdentifiersShouldNotContainTypeNames",
-// 	Justification = "Developers should know the difference between a builtin type and an identifier on a type with the same name.")]
-//
 // [assembly: SuppressMessage(
 // 	"ReSharper",
 // 	"MemberCanBeMadeStatic.Local",
