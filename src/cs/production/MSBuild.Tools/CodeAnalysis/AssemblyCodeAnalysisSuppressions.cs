@@ -6,6 +6,12 @@ using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage(
 	"Microsoft Design",
+	"CA1050",
+	MessageId = "Declare types in namespaces",
+	Justification = "To namespace or not to namespace is a developer descision on a case-by-case basis; there should be no blanket rule that says all folders or containers of organization for code should have their own namespace.")]
+
+[assembly: SuppressMessage(
+	"Microsoft Design",
 	"CA1062",
 	MessageId = "Validate arguments of public methods (null)",
 	Justification = "Always use C# nullables which makes this rule redundant and noisy.")]
