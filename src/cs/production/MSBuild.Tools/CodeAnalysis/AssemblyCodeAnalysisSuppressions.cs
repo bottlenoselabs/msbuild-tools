@@ -16,11 +16,12 @@ using System.Diagnostics.CodeAnalysis;
 	MessageId = "Validate arguments of public methods (null)",
 	Justification = "Always use C# nullables which makes this rule redundant and noisy.")]
 
-// [assembly: SuppressMessage(
-// 	"Microsoft Naming",
-// 	"CA1051:DoNotDeclareVisibleInstanceFields",
-// 	Justification = "'fields should be as an implementation detail' is wrong; fields are data and developers need to work with data.")]
-//
+[assembly: SuppressMessage(
+	"Microsoft Design", 
+	"CA1051", 
+	MessageId = "Do not declare visible instance fields", 
+	Justification = "The idea that 'fields should be as an implementation detail' is wrong; fields are data and developers need to work with data.")]
+
 // [assembly: SuppressMessage(
 // 	"Microsoft Naming",
 // 	"CA1720:IdentifiersShouldNotContainTypeNames",
