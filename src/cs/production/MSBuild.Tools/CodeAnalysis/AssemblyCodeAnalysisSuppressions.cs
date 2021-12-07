@@ -29,6 +29,12 @@ using System.Diagnostics.CodeAnalysis;
 	Justification = "Naming of types with a certain suffix like 'Exception' or 'Collection' should not reserved just for Microsoft; developers should be free to name types as they wish.")]
 
 [assembly: SuppressMessage(
+	"Microsoft Naming",
+	"CA1716",
+	MessageId = "Identifiers should not match keywords",
+	Justification = "If a developer named something that matches an identifier or keyword it's a conscience and deliberate choice.")]
+
+[assembly: SuppressMessage(
 	"Microsoft Naming", 
 	"CA1720", 
 	MessageId = "Identifier contains type name",
@@ -49,12 +55,7 @@ using System.Diagnostics.CodeAnalysis;
 // 	"ReSharper",
 // 	"MemberCanBeMadeStatic.Global",
 // 	Justification = "If something could be static but it's not then the developer made a conscience and deliberate choice.")]
-// 	
-// [assembly: SuppressMessage(
-// 	"Microsoft Naming",
-// 	"CA1716:IdentifiersShouldNotMatchKeywords",
-// 	Justification = "If a developer named something that matches an identifier it's a conscience and deliberate choice.")]
-// 	
+
 // [assembly: SuppressMessage(
 // 	"Microsoft Naming",
 // 	"CA1707:IdentifiersShouldNotContainUnderscores",
