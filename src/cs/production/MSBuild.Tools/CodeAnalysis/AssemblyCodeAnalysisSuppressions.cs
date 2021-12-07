@@ -22,7 +22,7 @@ using System.Diagnostics.CodeAnalysis;
 	MessageId = "Validate arguments of public methods (null)",
 	Justification = "Always use C# nullables which makes this rule redundant and noisy.")]
 
-[SuppressMessage(
+[assembly: SuppressMessage(
 	"Microsoft Naming", 
 	"CA1711",
 	MessageId = "Identifiers should not have incorrect suffix",
