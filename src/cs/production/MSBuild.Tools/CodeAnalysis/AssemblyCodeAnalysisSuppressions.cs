@@ -8,7 +8,7 @@ using System.Diagnostics.CodeAnalysis;
 	"Microsoft Design",
 	"CA1062",
 	MessageId = "Validate arguments of public methods (null)",
-	Justification = "Always use C# nullables which makes this rule redundant and noisy."]
+	Justification = "Always use C# nullables which makes this rule redundant and noisy.")]
 
 // [assembly: SuppressMessage(
 // 	"Microsoft Naming",
