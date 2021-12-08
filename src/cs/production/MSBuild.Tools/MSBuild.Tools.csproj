@@ -18,6 +18,11 @@
         <IsPackable>true</IsPackable>
         <RepositoryUrl>https://github.com/bottlenoselabs/msbuild-tools</RepositoryUrl>
         <PackageDescription>MSBuild extensions and settings used for all C# projects at Bottlenose Labs Inc.</PackageDescription>
+        <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <IncludeSymbols>false</IncludeSymbols>
+        <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
+        <CopyOutputSymbolsToOutputDirectory>true</CopyOutputSymbolsToOutputDirectory>
     </PropertyGroup>
     
     <!-- NuGet package content-->
