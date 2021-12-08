@@ -26,6 +26,12 @@
         <PackageIcon>content/images/icon.png</PackageIcon>
     </PropertyGroup>
     
+    <!-- MSBuild.Tools.props will include compile files, but then they will get compiled twice for this .csproj -->
+    <ItemGroup>
+        <Compile Remove="$(MSBuildToolsContentDirectoryPath)/**/*.cs" />
+        <None Include="$(MSBuildToolsContentDirectoryPath)/**/*.cs" />
+    </ItemGroup>
+    
     <!-- NuGet package content-->
     <ItemGroup>
         <Content Update="$(MSBuildThisFileDirectory)/**/*.*">
