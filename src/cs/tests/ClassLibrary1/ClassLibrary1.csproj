@@ -4,7 +4,8 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <IsPackable>false</IsPackable>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
     
     <PropertyGroup>
@@ -14,7 +15,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="bottlenoselabs.MSBuild.Tools" Version="0.0.0-pre" PrivateAssets="true" ExcludeAssets="true" GeneratePathProperty="true" />
+        <PackageReference Include="bottlenoselabs.MSBuild.Tools" Version="0.0.0-pre" />
     </ItemGroup>
 
 </Project>

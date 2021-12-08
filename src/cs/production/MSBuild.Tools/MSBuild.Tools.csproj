@@ -23,6 +23,7 @@
         <IncludeSymbols>false</IncludeSymbols>
         <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
         <CopyOutputSymbolsToOutputDirectory>true</CopyOutputSymbolsToOutputDirectory>
+        <PackageIcon>content/images/icon.png</PackageIcon>
     </PropertyGroup>
     
     <!-- NuGet package content-->
@@ -31,11 +32,11 @@
             <Pack>true</Pack>
             <PackagePath>content/</PackagePath>
         </Content>
-        <Content Update="$(MSBuildThisFileDirectory)/bottlenoselabs.MSBuild.Tools.props" >
+        <Content Update="$(MSBuildThisFileDirectory)/bottlenoselabs.MSBuild.Tools.props">
             <PackagePath>build/</PackagePath>
             <PackageCopyToOutput>true</PackageCopyToOutput>
         </Content>
-        <Content Update="$(MSBuildThisFileDirectory)/bottlenoselabs.MSBuild.Tools.targets" >
+        <Content Update="$(MSBuildThisFileDirectory)/bottlenoselabs.MSBuild.Tools.targets">
             <PackagePath>build/</PackagePath>
             <PackageCopyToOutput>true</PackageCopyToOutput>
         </Content>
