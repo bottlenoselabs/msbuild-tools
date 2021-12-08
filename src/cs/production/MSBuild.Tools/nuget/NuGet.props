@@ -5,7 +5,6 @@
     <IncludeSymbols>false</IncludeSymbols>
     <PackageOutputPath>$(GitRepositoryPath)/nupkg</PackageOutputPath>
     <RepositoryType>git</RepositoryType>
-    <PackageIcon>$(MSBuildThisFileDirectory)/images/logo.png</PackageIcon>
   </PropertyGroup>
 
 </Project>

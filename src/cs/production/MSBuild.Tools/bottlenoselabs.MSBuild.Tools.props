@@ -1,52 +1,10 @@
 <Project>
-
-  <!-- Custom project settings -->
+  
   <PropertyGroup>
-    <GitRepositoryPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))</GitRepositoryPath>
-    <EnableRootNamespace>true</EnableRootNamespace>
-    <EnableCodeCoverage>true</EnableCodeCoverage>
-    <EnableCLSCompliant>false</EnableCLSCompliant>
+    <MSBuildToolsContentDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)/MSBuild.Tools.props')">$(MSBuildThisFileDirectory)</MSBuildToolsContentDirectoryPath>
+    <MSBuildToolsContentDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)/../content/MSBuild.Tools.props')">$(MSBuildThisFileDirectory)/../content</MSBuildToolsContentDirectoryPath>
   </PropertyGroup>
 
-  <!-- MSBuild project settings -->
-  <PropertyGroup>
-    <Company>bottlenoselabs</Company>
-    <Authors>bottlenoselabs</Authors>
-    <Copyright>© $([System.DateTime]::Now.ToString(yyyy)) Bottlenose Labs Inc.</Copyright>
-    <NeutralLanguage>en</NeutralLanguage>
-    <LangVersion>latest</LangVersion>
-    <Nullable>enable</Nullable>
-    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <OutputPath>$(GitRepositoryPath)/bin/$(MSBuildProjectName)/$(Configuration)</OutputPath>
-<!--    <BaseIntermediateOutputPath>$(GitRepositoryPath)/obj/$(MSBuildProjectName)/$(Configuration)</BaseIntermediateOutputPath>-->
-<!--    <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>-->
-    <RestoreOutputPath>$(BaseIntermediateOutputPath)</RestoreOutputPath>
-    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
-    <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
-    <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PublishReadyToRun>false</PublishReadyToRun>
-    <TieredCompilation>false</TieredCompilation>
-  </PropertyGroup>
-
-  <!-- Link all files + compile .cs files -->
-  <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)/**/*.*">
-      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </Content>
-    <Compile Include="$(MSBuildThisFileDirectory)/**/*.cs">
-      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </Compile>
-  </ItemGroup>
-
-  <!-- Code analysis -->
-  <Import Project="$(MSBuildThisFileDirectory)/code-analysis/CodeAnalysis.props" />
-
-  <!-- NuGet -->
-  <Import Project="$(MSBuildThisFileDirectory)/nuget/NuGet.props" />
-
-  <!-- NativeAOT -->
-  <Import Project="$(MSBuildThisFileDirectory)/native-aot/NativeAOT.props" />
+  <Import Project="$(MSBuildToolsContentDirectoryPath)/MSBuild.Tools.props" />
 
 </Project>

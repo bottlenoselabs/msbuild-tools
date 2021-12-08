@@ -23,11 +23,20 @@
     <!-- NuGet package content-->
     <ItemGroup>
         <Content Update="$(MSBuildThisFileDirectory)/**/*.*">
-            <PackagePath>build/</PackagePath>
             <Pack>true</Pack>
-            <PackageFlatten>false</PackageFlatten>
+            <PackagePath>content/</PackagePath>
+        </Content>
+        <Content Update="$(MSBuildThisFileDirectory)/bottlenoselabs.MSBuild.Tools.props" >
+            <PackagePath>build/</PackagePath>
             <PackageCopyToOutput>true</PackageCopyToOutput>
         </Content>
+        <Content Update="$(MSBuildThisFileDirectory)/bottlenoselabs.MSBuild.Tools.targets" >
+            <PackagePath>build/</PackagePath>
+            <PackageCopyToOutput>true</PackageCopyToOutput>
+        </Content>
+        <Content Remove="$(MSBuildThisFileDirectory)/obj/**/*" />
+        <Content Remove="$(MSBuildThisFileDirectory)/bin/**/*" />
+        <Content Remove="$(MSBuildThisFileDirectory)/MSBuild.Tools.csproj" />
     </ItemGroup>
 
 </Project>
