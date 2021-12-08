@@ -30,42 +30,23 @@
     <TieredCompilation>false</TieredCompilation>
   </PropertyGroup>
 
-  <!-- NuGet -->
-  <PropertyGroup>
-    <IsPackable>false</IsPackable>
-    <IncludeSymbols>false</IncludeSymbols>
-    <PackageOutputPath>$(GitRepositoryPath)/nupkg</PackageOutputPath>
-    <RepositoryType>git</RepositoryType>
-  </PropertyGroup>
+  <!-- Link all files + compile .cs files -->
   <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)/**/*.props">
-      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </Content>
-    <Content Include="$(MSBuildThisFileDirectory)/**/*.targets">
-      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </Content>
-    <Content Include="$(MSBuildThisFileDirectory)/**/*.globalconfig">
-      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </Content>
-    <Content Include="$(MSBuildThisFileDirectory)/**/*.cs">
+    <Content Include="$(MSBuildThisFileDirectory)/**/*.*">
       <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Content>
     <Compile Include="$(MSBuildThisFileDirectory)/**/*.cs">
       <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
-    <Content Include="$(MSBuildThisFileDirectory)/**/*.json">
-      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </Content>
-    <Content Include="$(MSBuildThisFileDirectory)/**/*.ruleset">
-      <Link>Properties/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </Content>
-    <Content Remove="$(MSBuildThisFileDirectory)/obj/**/*" />
   </ItemGroup>
 
   <!-- Code analysis -->
-  <Import Project="$(MSBuildThisFileDirectory)/CodeAnalysis/CodeAnalysis.props" />
+  <Import Project="$(MSBuildThisFileDirectory)/code-analysis/CodeAnalysis.props" />
+
+  <!-- NuGet -->
+  <Import Project="$(MSBuildThisFileDirectory)/nuget/NuGet.props" />
 
   <!-- NativeAOT -->
-  <Import Project="$(MSBuildThisFileDirectory)/NativeAOT/NativeAOT.props" />
+  <Import Project="$(MSBuildThisFileDirectory)/native-aot/NativeAOT.props" />
 
 </Project>

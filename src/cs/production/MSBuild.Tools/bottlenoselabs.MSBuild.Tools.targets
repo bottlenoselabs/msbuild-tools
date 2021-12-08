@@ -36,10 +36,13 @@
   </ItemGroup>
 
   <!-- Code analysis -->
-  <Import Project="$(MSBuildThisFileDirectory)/CodeAnalysis/CodeAnalysis.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)/code-analysis/CodeAnalysis.targets" />
+
+  <!-- NuGet -->
+  <Import Project="$(MSBuildThisFileDirectory)/nuget/NuGet.targets" />
 
   <!-- NativeAOT -->
-  <Import Project="$(MSBuildThisFileDirectory)/NativeAOT/NativeAOT.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)/native-aot/NativeAOT.targets" />
 
   <!-- Remove obj folder; this folder sometimes shows up in the solution explorer in Rider / Visual Studio -->
   <ItemGroup>

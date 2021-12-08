@@ -22,37 +22,7 @@
     
     <!-- NuGet package content-->
     <ItemGroup>
-        <Content Update="$(MSBuildThisFileDirectory)/**/*.props">
-            <PackagePath>build/</PackagePath>
-            <Pack>true</Pack>
-            <PackageFlatten>false</PackageFlatten>
-            <PackageCopyToOutput>true</PackageCopyToOutput>
-        </Content>
-        <Content Update="$(MSBuildThisFileDirectory)/**/*.targets">
-            <PackagePath>build/</PackagePath>
-            <Pack>true</Pack>
-            <PackageFlatten>false</PackageFlatten>
-            <PackageCopyToOutput>true</PackageCopyToOutput>
-        </Content>
-        <Content Update="$(MSBuildThisFileDirectory)/**/*.globalconfig">
-            <PackagePath>build/</PackagePath>
-            <Pack>true</Pack>
-            <PackageFlatten>false</PackageFlatten>
-            <PackageCopyToOutput>true</PackageCopyToOutput>
-        </Content>
-        <Content Update="$(MSBuildThisFileDirectory)/**/*.cs">
-            <PackagePath>build/</PackagePath>
-            <Pack>true</Pack>
-            <PackageFlatten>false</PackageFlatten>
-            <PackageCopyToOutput>true</PackageCopyToOutput>
-        </Content>
-        <Content Update="$(MSBuildThisFileDirectory)/**/*.json">
-            <PackagePath>build/</PackagePath>
-            <Pack>true</Pack>
-            <PackageFlatten>false</PackageFlatten>
-            <PackageCopyToOutput>true</PackageCopyToOutput>
-        </Content>
-        <Content Update="$(MSBuildThisFileDirectory)/**/*.ruleset">
+        <Content Update="$(MSBuildThisFileDirectory)/**/*.*">
             <PackagePath>build/</PackagePath>
             <Pack>true</Pack>
             <PackageFlatten>false</PackageFlatten>
