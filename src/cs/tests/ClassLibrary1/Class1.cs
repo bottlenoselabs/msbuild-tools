@@ -1,11 +1,8 @@
 ﻿// Copyright (c) Bottlenose Labs Inc. (https://github.com/bottlenoselabs). All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the Git repository root directory for full license information.
 
-using JetBrains.Annotations;
-
 namespace ClassLibrary1;
 
-[UsedImplicitly]
 public class Class1
 {
     private readonly string _x;
