@@ -6,13 +6,13 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(PackageIcon)' == '' ">
-    <PackageIcon>content/images/icon.png</PackageIcon>
+    <PackageIcon>icon.png</PackageIcon>
     <_PackageIcon>true</_PackageIcon>
   </PropertyGroup>
   <ItemGroup Condition=" '$(_PackageIcon)' != '' ">
-    <Content Update="$(MSBuildToolsContentDirectoryPath)/images/icon.png">
+    <Content Update="$(MSBuildToolsContentDirectoryPath)/icon.png">
       <Pack>true</Pack>
-      <PackagePath>content/images/icon.png</PackagePath>
+      <PackagePath>icon.png</PackagePath>
     </Content>
   </ItemGroup>
 
