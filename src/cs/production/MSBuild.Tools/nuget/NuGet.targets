@@ -15,7 +15,7 @@
     <Content Include="$(MSBuildToolsDirectoryPath)/icon.png">
       <Pack>true</Pack>
       <PackagePath>icon.png</PackagePath>
-      <Link>icon.png</Link>
+      <Link>Properties/bottlenoselabs/icon.png</Link>
     </Content>
   </ItemGroup>
 
