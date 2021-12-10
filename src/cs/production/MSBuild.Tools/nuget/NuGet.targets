@@ -12,9 +12,10 @@
     <_PackageIcon>true</_PackageIcon>
   </PropertyGroup>
   <ItemGroup Condition=" '$(_PackageIcon)' != '' ">
-    <Content Update="$(MSBuildToolsContentDirectoryPath)/icon.png">
+    <Content Include="$(MSBuildToolsDirectoryPath)/icon.png">
       <Pack>true</Pack>
       <PackagePath>icon.png</PackagePath>
+      <Link>icon.png</Link>
     </Content>
   </ItemGroup>
 

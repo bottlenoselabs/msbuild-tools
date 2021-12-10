@@ -1,6 +1,8 @@
 <Project>
   
   <PropertyGroup>
+    <MSBuildToolsDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)/MSBuild.Tools.props')">$(MSBuildThisFileDirectory)</MSBuildToolsDirectoryPath>
+    <MSBuildToolsDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)/../content/MSBuild.Tools.props')">$(MSBuildThisFileDirectory)/..</MSBuildToolsDirectoryPath>
     <MSBuildToolsContentDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)/MSBuild.Tools.props')">$(MSBuildThisFileDirectory)</MSBuildToolsContentDirectoryPath>
     <MSBuildToolsContentDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)/../content/MSBuild.Tools.props')">$(MSBuildThisFileDirectory)/../content</MSBuildToolsContentDirectoryPath>
   </PropertyGroup>
