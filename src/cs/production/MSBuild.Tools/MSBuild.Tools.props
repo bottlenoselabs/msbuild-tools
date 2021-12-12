@@ -28,6 +28,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PublishReadyToRun>false</PublishReadyToRun>
     <TieredCompilation>false</TieredCompilation>
+    <NoWarn>$(NoWarn),CS0436</NoWarn>
   </PropertyGroup>
 
   <!-- Content include all files + compile all .cs files -->
