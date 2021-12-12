@@ -23,6 +23,7 @@
         <IncludeSymbols>false</IncludeSymbols>
         <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
         <CopyOutputSymbolsToOutputDirectory>true</CopyOutputSymbolsToOutputDirectory>
+        <DevelopmentDependency>true</DevelopmentDependency>
     </PropertyGroup>
     
     <!-- MSBuild.Tools.props will include compile files, but then they will get compiled twice for this .csproj -->
