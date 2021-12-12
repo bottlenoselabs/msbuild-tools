@@ -1,3 +1,9 @@
 <Project>
-    <Import Project="$(MSBuildToolsContentDirectoryPath)/MSBuild.Tools.targets" />
+    
+    <Import Condition=" $(_MSBuildToolsTargetsImported) != 'true' " Project="$(MSBuildToolsContentDirectoryPath)/MSBuild.Tools.targets" />
+
+    <PropertyGroup>
+        <_MSBuildToolsTargetsImported>true</_MSBuildToolsTargetsImported>
+    </PropertyGroup>
+    
 </Project>

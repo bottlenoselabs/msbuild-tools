@@ -1,12 +1,16 @@
 <Project>
   
-  <PropertyGroup>
-    <MSBuildToolsDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)/MSBuild.Tools.props')">$(MSBuildThisFileDirectory)</MSBuildToolsDirectoryPath>
-    <MSBuildToolsDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)/../content/MSBuild.Tools.props')">$(MSBuildThisFileDirectory)/..</MSBuildToolsDirectoryPath>
-    <MSBuildToolsContentDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)/MSBuild.Tools.props')">$(MSBuildThisFileDirectory)</MSBuildToolsContentDirectoryPath>
-    <MSBuildToolsContentDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)/../content/MSBuild.Tools.props')">$(MSBuildThisFileDirectory)/../content</MSBuildToolsContentDirectoryPath>
+  <PropertyGroup Condition=" $(_MSBuildToolsPropsImported) != 'true' ">
+    <MSBuildToolsDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)/MSBuild.Tools.props')">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))</MSBuildToolsDirectoryPath>
+    <MSBuildToolsDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)/../content/MSBuild.Tools.props')">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)/..'))</MSBuildToolsDirectoryPath>
+    <MSBuildToolsContentDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)/MSBuild.Tools.props')">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))</MSBuildToolsContentDirectoryPath>
+    <MSBuildToolsContentDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)/../content/MSBuild.Tools.props')">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)/../content'))</MSBuildToolsContentDirectoryPath>
   </PropertyGroup>
 
-  <Import Project="$(MSBuildToolsContentDirectoryPath)/MSBuild.Tools.props" />
+  <Import Condition=" $(_MSBuildToolsPropsImported) != 'true' " Project="$(MSBuildToolsContentDirectoryPath)/MSBuild.Tools.props" />
+  
+  <PropertyGroup>
+    <_MSBuildToolsPropsImported>true</_MSBuildToolsPropsImported>
+  </PropertyGroup>
 
 </Project>
