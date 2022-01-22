@@ -1,5 +1,6 @@
-assembly-versioning-scheme: None
 mode: ContinuousDeployment
+continuous-delivery-fallback-tag: '' # TODO: Write a commment
+assembly-versioning-scheme: None # With the newer SDK style projects in .NET, preference is to pass the version during `dotnet build` explicitly as a property parameter
 branches: 
   main: 
     regex: (^main$|^origin\/main$)
