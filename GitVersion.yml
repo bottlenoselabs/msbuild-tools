@@ -1,5 +1,5 @@
 assembly-versioning-scheme: None
-mode: Mainline
+mode: ContinuousDeployment
 branches: 
   main: 
     regex: (^main$|^origin\/main$)
