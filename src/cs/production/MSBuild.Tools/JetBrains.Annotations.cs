@@ -555,7 +555,6 @@ namespace JetBrains.Annotations
   /// with <see cref="MeansImplicitUseAttribute"/> or <see cref="UsedImplicitlyAttribute"/>.
   /// </summary>
   [Flags]
-  [ExcludeFromCodeCoverage]
   public enum ImplicitUseKindFlags
   {
     Default = Access | Assign | InstantiatedWithFixedConstructorSignature,
@@ -577,7 +576,6 @@ namespace JetBrains.Annotations
   /// with <see cref="MeansImplicitUseAttribute"/> or <see cref="UsedImplicitlyAttribute"/>.
   /// </summary>
   [Flags]
-  [ExcludeFromCodeCoverage]
   public enum ImplicitUseTargetFlags
   {
     Default = Itself,
@@ -1156,7 +1154,6 @@ namespace JetBrains.Annotations
   /// how the collection method invocation affects the contents of the collection.
   /// </summary>
   [Flags]
-  [ExcludeFromCodeCoverage]
   public enum CollectionAccessType
   {
     /// <summary>Method does not use or modify content of the collection.</summary>
@@ -1201,7 +1198,6 @@ namespace JetBrains.Annotations
   /// Specifies assertion type. If the assertion method argument satisfies the condition,
   /// then the execution continues. Otherwise, execution is assumed to be halted.
   /// </summary>
-  [ExcludeFromCodeCoverage]
   public enum AssertionConditionType
   {
     /// <summary>Marked parameter should be evaluated to true.</summary>
@@ -1266,7 +1262,6 @@ namespace JetBrains.Annotations
   /// <summary>
   /// Language of injected code fragment inside marked by <see cref="LanguageInjectionAttribute"/> string literal.
   /// </summary>
-  [ExcludeFromCodeCoverage]
   public enum InjectedLanguage
   {
     CSS,
