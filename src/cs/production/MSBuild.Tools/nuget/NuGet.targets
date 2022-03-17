@@ -5,7 +5,7 @@
     <PackageId>$(Company).$(AssemblyName)</PackageId>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(PackageIcon)' == '' ">
+  <PropertyGroup Condition=" '$(PackageIcon)' == '' AND '$(_PackageIcon)' == '' ">
     <PackageIcon>icon.png</PackageIcon>
     <PackageIconUrl>https://github.com/bottlenoselabs/.github/blob/6acba5c53d945264b21233a79fbd5b1c3560891e/images/png/logo_padded.png</PackageIconUrl>
     <NoWarn>$(NoWarn),NU5048</NoWarn>

@@ -6,34 +6,6 @@
     <AheadOfTimeCompilation>false</AheadOfTimeCompilation>
   </PropertyGroup>
 
-  <!-- Platform -->
-  <PropertyGroup>
-    <IsWindows Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true' ">true</IsWindows> 
-    <IsMacOS Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' == 'true' ">true</IsMacOS> 
-    <IsLinux Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true' ">true</IsLinux>
-    <IsFreeBSD Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true' ">true</IsFreeBSD>
-    <ArchitectureCaseSensitive>$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)</ArchitectureCaseSensitive>
-    <Architecture>$(ArchitectureCaseSensitive.ToLower())</Architecture>
-    <Is32Bit Condition=" '$(Architecture)' == 'x86' OR '$(Architecture)' == 'arm32' ">true</Is32Bit>
-    <Is32Bit Condition=" '$(Architecture)' != 'x86' AND '$(Architecture)' != 'arm32' ">false</Is32Bit>
-    <Is64Bit Condition=" '$(Architecture)' == 'x64' OR '$(Architecture)' == 'arm64' ">true</Is64Bit>
-    <Is64Bit Condition=" '$(Architecture)' != 'x64' AND '$(Architecture)' != 'arm64' ">false</Is64Bit>
-  </PropertyGroup>
-
-  <!-- Platform symbols settings -->
-  <PropertyGroup Condition=" '$(IsWindows)'=='true' ">
-    <DefineConstants>WINDOWS</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(IsMacOS)'=='true' ">
-    <DefineConstants>MACOS</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(IsLinux)'=='true' ">
-    <DefineConstants>LINUX</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(IsFreeBSD)'=='true' ">
-    <DefineConstants>FREEBSD</DefineConstants>
-  </PropertyGroup>
-
   <!-- Native ahead of time compilation -->
   <PropertyGroup Condition=" '$(AheadOfTimeCompilation)' == 'true' ">
 
