@@ -4,7 +4,7 @@
     <PropertyGroup>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <EnableCodeAnalysisSuppressions>false</EnableCodeAnalysisSuppressions>
-        <EnableCLSCompliant>none</EnableCLSCompliant>
+        <IsEnableCLSCompliant>none</IsEnableCLSCompliant>
     </PropertyGroup>
 
     <!-- Custom project settings -->

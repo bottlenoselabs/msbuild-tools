@@ -2,12 +2,12 @@
 
   <!-- Settings -->
   <PropertyGroup>
-    <EnableDefaultRuntimeIdentifier>false</EnableDefaultRuntimeIdentifier>
-    <AheadOfTimeCompilation>false</AheadOfTimeCompilation>
+    <IsEnableDefaultRuntimeIdentifier Condition=" '$(IsEnableDefaultRuntimeIdentifier)' == '' ">false</IsEnableDefaultRuntimeIdentifier>
+    <IsEnabledAheadOfTimeCompilation Condition=" '$(IsEnabledAheadOfTimeCompilation)' == '' ">false</IsEnabledAheadOfTimeCompilation>
   </PropertyGroup>
 
   <!-- Native ahead of time compilation -->
-  <PropertyGroup Condition=" '$(AheadOfTimeCompilation)' == 'true' ">
+  <PropertyGroup Condition=" '$(IsEnabledAheadOfTimeCompilation)' == 'true' ">
 
     <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>

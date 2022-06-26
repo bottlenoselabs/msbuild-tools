@@ -3,9 +3,9 @@
   <!-- Custom project settings -->
   <PropertyGroup>
     <GitRepositoryPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))</GitRepositoryPath>
-    <EnableRootNamespace>true</EnableRootNamespace>
-    <EnableCodeCoverage>true</EnableCodeCoverage>
-    <EnableCLSCompliant>false</EnableCLSCompliant>
+    <IsEnabledEnableRootNamespace Condition=" '$(IsEnabledEnableRootNamespace)' == '' ">true</IsEnabledEnableRootNamespace>
+    <IsEnableCodeCoverage Condition=" '$(IsEnableCodeCoverage)' == '' ">true</IsEnableCodeCoverage>
+    <IsEnableCLSCompliant Condition=" '$(IsEnableCLSCompliant)' == '' ">false</IsEnableCLSCompliant>
   </PropertyGroup>
 
   <!-- MSBuild project settings -->

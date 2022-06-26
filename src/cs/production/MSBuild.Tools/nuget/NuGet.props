@@ -1,5 +1,6 @@
 <Project>
 
+  <!-- NuGet -->
   <PropertyGroup>
     <IsPackable>false</IsPackable>
     <IncludeSymbols>false</IncludeSymbols>
